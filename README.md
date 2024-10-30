@@ -5,9 +5,13 @@ https://drive.google.com/drive/folders/1v0TyqVyXjoALSFaTt4l3u4eh0k4jO_V5?usp=dri
 
 ## Steps
 ### 1. Replace Files
-Replace the following files in the Difftumor/STEP3 directory:
+Replace the following files in the Difftumor/STEP3.SegmentationModel directory:
 
 main.py
+
+monai_trainer.py
+
+TumorGeneration/utils.py
 
 hg.sh
 

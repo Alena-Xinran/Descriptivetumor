@@ -28,7 +28,7 @@ difftumor-pancreas
 difftumor-kidney
 ### 5. Future Checkpoint Updates
 Subsequent checkpoints will use the following names:
-descriptivetumor1 for liver
-descriptivetumor2 for pancreas
-descriptivetumor3 for kidney
+descriptivetumor1 for liver, pancreas, kidney
+descriptivetumor2 for liver, pancreas, kidney
+descriptivetumor3 for liver, pancreas, kidney
 Train across 5 folds and return the checkpoints sequentially.

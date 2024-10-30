@@ -6,9 +6,13 @@ https://drive.google.com/drive/folders/1v0TyqVyXjoALSFaTt4l3u4eh0k4jO_V5?usp=dri
 ## Steps
 ### 1. Replace Files
 Replace the following files in the Difftumor/STEP3 directory:
+
 main.py
+
 hg.sh
+
 cross_eval folder
+
 ### 2. Update Data Path
 Modify the data path in hg.sh to point to your dataset.
 ### 3. Train Specific Fold

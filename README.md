@@ -23,12 +23,20 @@ Modify the data path in hg.sh to point to your dataset.
 Set fold=0 to train a specific fold.
 ### 4. Return Checkpoints
 Three checkpoints will be generated:
+
 difftumor-liver
+
 difftumor-pancreas
+
 difftumor-kidney
+
 ### 5. Future Checkpoint Updates
 Subsequent checkpoints will use the following names:
+
 descriptivetumor1 for liver, pancreas, kidney
+
 descriptivetumor2 for liver, pancreas, kidney
+
 descriptivetumor3 for liver, pancreas, kidney
+
 Train across 5 folds and return the checkpoints sequentially.

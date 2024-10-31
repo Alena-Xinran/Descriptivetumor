@@ -1,0 +1,6 @@
+CT/OxAfm9MYHZ.nii.gz Organtumor/pancreas/OxAfm9MYHZ.nii.gz
+CT/tQJ4z5l1B6.nii.gz Organtumor/pancreas/tQJ4z5l1B6.nii.gz
+CT/uj3llowlJB.nii.gz Organtumor/pancreas/uj3llowlJB.nii.gz
+CT/wJl8PXHdVm.nii.gz Organtumor/pancreas/wJl8PXHdVm.nii.gz
+CT/xh94qfjEO1.nii.gz Organtumor/pancreas/xh94qfjEO1.nii.gz
+CT/XyARefRcpw.nii.gz Organtumor/pancreas/XyARefRcpw.nii.gz

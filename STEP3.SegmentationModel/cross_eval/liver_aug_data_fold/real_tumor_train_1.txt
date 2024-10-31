@@ -1,0 +1,104 @@
+CT/qBAQV8his3.nii.gz Organtumor/liver/qBAQV8his3.nii.gz
+CT/chcZad9913.nii.gz Organtumor/liver/chcZad9913.nii.gz
+CT/1J07NmUKTS.nii.gz Organtumor/liver/1J07NmUKTS.nii.gz
+CT/mMdXPyjQfK.nii.gz Organtumor/liver/mMdXPyjQfK.nii.gz
+CT/EbF6DY51NT.nii.gz Organtumor/liver/EbF6DY51NT.nii.gz
+CT/9DiVQmoMiy.nii.gz Organtumor/liver/9DiVQmoMiy.nii.gz
+CT/J3Ok1tE9ic.nii.gz Organtumor/liver/J3Ok1tE9ic.nii.gz
+CT/V2P3n7SyGG.nii.gz Organtumor/liver/V2P3n7SyGG.nii.gz
+CT/MEu1NOixjR.nii.gz Organtumor/liver/MEu1NOixjR.nii.gz
+CT/XokcrXmKyn.nii.gz Organtumor/liver/XokcrXmKyn.nii.gz
+CT/xaPR1Q9tmm.nii.gz Organtumor/liver/xaPR1Q9tmm.nii.gz
+CT/ta6ZAp78Mq.nii.gz Organtumor/liver/ta6ZAp78Mq.nii.gz
+CT/w8x0zarHGh.nii.gz Organtumor/liver/w8x0zarHGh.nii.gz
+CT/tzU3YZDng5.nii.gz Organtumor/liver/tzU3YZDng5.nii.gz
+CT/QZBWrfmrIM.nii.gz Organtumor/liver/QZBWrfmrIM.nii.gz
+CT/uyuqWNEvrj.nii.gz Organtumor/liver/uyuqWNEvrj.nii.gz
+CT/GfecTH2Vze.nii.gz Organtumor/liver/GfecTH2Vze.nii.gz
+CT/XyARefRcpw.nii.gz Organtumor/liver/XyARefRcpw.nii.gz
+CT/MUbq6CWNZu.nii.gz Organtumor/liver/MUbq6CWNZu.nii.gz
+CT/Wr9sHPEDBD.nii.gz Organtumor/liver/Wr9sHPEDBD.nii.gz
+CT/DGykFR9IY1.nii.gz Organtumor/liver/DGykFR9IY1.nii.gz
+CT/czi8ixjpHD.nii.gz Organtumor/liver/czi8ixjpHD.nii.gz
+CT/ZuFEJ3Ysua.nii.gz Organtumor/liver/ZuFEJ3Ysua.nii.gz
+CT/BT1EMp3cXm.nii.gz Organtumor/liver/BT1EMp3cXm.nii.gz
+CT/6AMSpjEoFf.nii.gz Organtumor/liver/6AMSpjEoFf.nii.gz
+CT/JyJh4jG0dg.nii.gz Organtumor/liver/JyJh4jG0dg.nii.gz
+CT/mUwx5xjTY5.nii.gz Organtumor/liver/mUwx5xjTY5.nii.gz
+CT/ZpA1AE7Laf.nii.gz Organtumor/liver/ZpA1AE7Laf.nii.gz
+CT/pSgrq9zOH5.nii.gz Organtumor/liver/pSgrq9zOH5.nii.gz
+CT/kdZfZo07h8.nii.gz Organtumor/liver/kdZfZo07h8.nii.gz
+CT/8VJ6mZLWk4.nii.gz Organtumor/liver/8VJ6mZLWk4.nii.gz
+CT/t7DL3nTlSo.nii.gz Organtumor/liver/t7DL3nTlSo.nii.gz
+CT/QSMcLh4sIi.nii.gz Organtumor/liver/QSMcLh4sIi.nii.gz
+CT/fCineePb6z.nii.gz Organtumor/liver/fCineePb6z.nii.gz
+CT/dSWYJyGkme.nii.gz Organtumor/liver/dSWYJyGkme.nii.gz
+CT/hbC4w9qEGJ.nii.gz Organtumor/liver/hbC4w9qEGJ.nii.gz
+CT/ft5PEkeD65.nii.gz Organtumor/liver/ft5PEkeD65.nii.gz
+CT/uj3llowlJB.nii.gz Organtumor/liver/uj3llowlJB.nii.gz
+CT/PRS2SCLQor.nii.gz Organtumor/liver/PRS2SCLQor.nii.gz
+CT/ykFXWdZ1wk.nii.gz Organtumor/liver/ykFXWdZ1wk.nii.gz
+CT/4Hn1f0WrVw.nii.gz Organ/liver/4Hn1f0WrVw.nii.gz Tumor/liver/OQ55W5cRs6.nii.gz The liver contains worsening metastasis with diffuse lesions.
+CT/j7ytncWGKw.nii.gz Organ/liver/j7ytncWGKw.nii.gz Tumor/liver/ZpA1AE7Laf.nii.gz The scan reveals hypodensity and low-attenuation areas.
+CT/2r75lkO3N5.nii.gz Organ/liver/2r75lkO3N5.nii.gz Tumor/liver/Tu2Prd89jC.nii.gz The liver demonstrates a heterogeneous enhancement pattern.
+CT/VWbLO3O3U8.nii.gz Organ/liver/VWbLO3O3U8.nii.gz Tumor/liver/J3Ok1tE9ic.nii.gz Numerous metastatic lesions are observed in the liver.
+CT/7ymQy96cJP.nii.gz Organ/liver/7ymQy96cJP.nii.gz Tumor/liver/iC9bgDGmdL.nii.gz An indeterminate arterial enhancement focus is present in the liver.
+CT/IlhrwH3b8X.nii.gz Organ/liver/IlhrwH3b8X.nii.gz Tumor/liver/l1ywwkHziw.nii.gz Subtle arterial enhancement with washout is identified in the liver lesion.
+CT/1ppaXb2RFD.nii.gz Organ/liver/1ppaXb2RFD.nii.gz Tumor/liver/yJDJ5HVWoz.nii.gz The liver contains a hypoattenuating lesion.
+CT/3fO2PagGGr.nii.gz Organ/liver/3fO2PagGGr.nii.gz Tumor/liver/OxAfm9MYHZ.nii.gz No suspicious hepatic lesions are observed in the scan.
+CT/9DPkVHUSQE.nii.gz Organ/liver/9DPkVHUSQE.nii.gz Tumor/liver/MEu1NOixjR.nii.gz Nodular liver contour with cirrhosis is observed.
+CT/Z4wqvHisCI.nii.gz Organ/liver/Z4wqvHisCI.nii.gz Tumor/liver/9UU23u5xCu.nii.gz Status post liver transplantation is observed.
+CT/EDJibCqFZA.nii.gz Organ/liver/EDJibCqFZA.nii.gz Tumor/liver/GymqmuNrRX.nii.gz A hypoattenuated lesion is identified in the hepatic region.
+CT/Mvk4cYe1XI.nii.gz Organ/liver/Mvk4cYe1XI.nii.gz Tumor/liver/cGlaONzhne.nii.gz The liver contains multifocal hepatocellular carcinoma with nodular contour.
+CT/UjoWDn5waI.nii.gz Organ/liver/UjoWDn5waI.nii.gz Tumor/liver/xh94qfjEO1.nii.gz Liver enhancement appears heterogeneous.
+CT/cGlaONzhne.nii.gz Organ/liver/cGlaONzhne.nii.gz Tumor/liver/VWbLO3O3U8.nii.gz The liver shows cysts and scattered hypodensities.
+CT/yIO087CLBq.nii.gz Organ/liver/yIO087CLBq.nii.gz Tumor/liver/JyJh4jG0dg.nii.gz The scan shows arterial hyperenhancement with washout in the liver.
+CT/fUD6KMa9a3.nii.gz Organ/liver/fUD6KMa9a3.nii.gz Tumor/liver/Wr9sHPEDBD.nii.gz Hypervascular enhancement with washout is present in the liver.
+CT/B4bVSZYpuh.nii.gz Organ/liver/B4bVSZYpuh.nii.gz Tumor/liver/VWbLO3O3U8.nii.gz The liver contains conglomerate metastasis with a mixed interval response.
+CT/jJhcqh341L.nii.gz Organ/liver/jJhcqh341L.nii.gz Tumor/liver/ZuFEJ3Ysua.nii.gz Hypoattenuating areas are present in the liver.
+CT/mhHGrjSx4L.nii.gz Organ/liver/mhHGrjSx4L.nii.gz Tumor/liver/dZNX2WI4ki.nii.gz The liver shows hypoattenuating lesions.
+CT/7fsTDwd7Kb.nii.gz Organ/liver/7fsTDwd7Kb.nii.gz Tumor/liver/Irx9vyFo8u.nii.gz The scan shows hypoenhancing lesions, ill-defined, in the liver.
+CT/YEgHnpYLEr.nii.gz Organ/liver/YEgHnpYLEr.nii.gz Tumor/liver/XokcrXmKyn.nii.gz The liver contains peripherally hyperenhancing lesions.
+CT/lAxpCqKxTk.nii.gz Organ/liver/lAxpCqKxTk.nii.gz Tumor/liver/Z8HPcGUAJv.nii.gz Nodular liver contour and cirrhosis are identified in the scan.
+CT/Z29hK8kU4b.nii.gz Organ/liver/Z29hK8kU4b.nii.gz Tumor/liver/7fsTDwd7Kb.nii.gz Scattered hypodensities and cysts are present in the liver.
+CT/QzBK1S896K.nii.gz Organ/liver/QzBK1S896K.nii.gz Tumor/liver/JyJh4jG0dg.nii.gz Conglomerate metastasis with a mixed interval response is present in the liver.
+CT/ml5CiY6qbL.nii.gz Organ/liver/ml5CiY6qbL.nii.gz Tumor/liver/eKK06zDgqZ.nii.gz The liver contains both hyperenhancing and hypoenhancing lesions.
+CT/2HZYQXU0vt.nii.gz Organ/liver/2HZYQXU0vt.nii.gz Tumor/liver/Z8HPcGUAJv.nii.gz The scan reveals hypoattenuation likely from prior ablation.
+CT/Jl7Br23A35.nii.gz Organ/liver/Jl7Br23A35.nii.gz Tumor/liver/2PPe0lZt1a.nii.gz Prior ablation is likely the cause of hypoattenuation seen.
+CT/gCtbylVicC.nii.gz Organ/liver/gCtbylVicC.nii.gz Tumor/liver/mMdXPyjQfK.nii.gz Cirrhotic liver morphology with nodular contour is present.
+CT/VzQtMOxKMM.nii.gz Organ/liver/VzQtMOxKMM.nii.gz Tumor/liver/7fsTDwd7Kb.nii.gz The scan reveals arterial hyperenhancement with washout in the hepatic area.
+CT/1eyUQzYT03.nii.gz Organ/liver/1eyUQzYT03.nii.gz Tumor/liver/NIAyFyR297.nii.gz Hypoattenuation observed in the liver lesion.
+CT/iC9bgDGmdL.nii.gz Organ/liver/iC9bgDGmdL.nii.gz Tumor/liver/JT3PNQ8Tjl.nii.gz The liver contains no focal suspicious lesions.
+CT/Ve9CRoFvL7.nii.gz Organ/liver/Ve9CRoFvL7.nii.gz Tumor/liver/2PPe0lZt1a.nii.gz The scan reveals well-demarcated cystic lesions and a mass in the liver.
+CT/UvWwZNGTj3.nii.gz Organ/liver/UvWwZNGTj3.nii.gz Tumor/liver/ykFXWdZ1wk.nii.gz No focal suspicious lesions are observed in the scan.
+CT/DsEBER1tpN.nii.gz Organ/liver/DsEBER1tpN.nii.gz Tumor/liver/V2P3n7SyGG.nii.gz Ill-defined hypoattenuating lesions are noted in the liver.
+CT/W9RNrPG176.nii.gz Organ/liver/W9RNrPG176.nii.gz Tumor/liver/uj3llowlJB.nii.gz Enlarging hepatic lesions are noted along with new ones.
+CT/8OjhPcoA9K.nii.gz Organ/liver/8OjhPcoA9K.nii.gz Tumor/liver/DGykFR9IY1.nii.gz Hypervascular enhancement with washout is identified in the liver.
+CT/ZqrbDZXDAv.nii.gz Organ/liver/ZqrbDZXDAv.nii.gz Tumor/liver/YEgHnpYLEr.nii.gz Hypodensities suggestive of cysts are scattered.
+CT/S5u7OR9YaR.nii.gz Organ/liver/S5u7OR9YaR.nii.gz Tumor/liver/g9wxm1kPLU.nii.gz The scan reveals heterogeneous enhancement in the liver.
+CT/N7TgZnYLlX.nii.gz Organ/liver/N7TgZnYLlX.nii.gz Tumor/liver/9DPkVHUSQE.nii.gz The liver contains hypodensities.
+CT/9w29riwvZd.nii.gz Organ/liver/9w29riwvZd.nii.gz Tumor/liver/ZpA1AE7Laf.nii.gz Hepatic metastases with confluent lesions are noted.
+CT/GymqmuNrRX.nii.gz Organ/liver/GymqmuNrRX.nii.gz Tumor/liver/5fGpp6irxs.nii.gz The liver demonstrates hypoattenuating lesions.
+CT/M6IKVUEWZ1.nii.gz Organ/liver/M6IKVUEWZ1.nii.gz Tumor/liver/TWPqGsE32B.nii.gz Hypodensity and low-attenuation regions are seen.
+CT/m93Xr4QbkM.nii.gz Organ/liver/m93Xr4QbkM.nii.gz Tumor/liver/MEu1NOixjR.nii.gz The liver shows hyperenhancing lesions.
+CT/CWIOCAu24b.nii.gz Organ/liver/CWIOCAu24b.nii.gz Tumor/liver/GymqmuNrRX.nii.gz The liver shows indexed lesions.
+CT/5VT0If1wlE.nii.gz Organ/liver/5VT0If1wlE.nii.gz Tumor/liver/LA2GQOasC6.nii.gz The liver contains lesions with arterial enhancement and washout.
+CT/LA2GQOasC6.nii.gz Organ/liver/LA2GQOasC6.nii.gz Tumor/liver/JQ5pKQ5B0J.nii.gz Hypoattenuating lesions, scattered throughout the liver, are noted.
+CT/ytPgvu5eqW.nii.gz Organ/liver/ytPgvu5eqW.nii.gz Tumor/liver/2r75lkO3N5.nii.gz The liver shows a mass and well-demarcated cystic lesions.
+CT/kXeKxUyyk9.nii.gz Organ/liver/kXeKxUyyk9.nii.gz Tumor/liver/dZNX2WI4ki.nii.gz The scan demonstrates a lobulated hypodensity, possibly a cyst or hemangioma.
+CT/RF8F0AvBoW.nii.gz Organ/liver/RF8F0AvBoW.nii.gz Tumor/liver/m93Xr4QbkM.nii.gz A liver lesion exhibits heterogeneous enhancement.
+CT/rvROFPZkXL.nii.gz Organ/liver/rvROFPZkXL.nii.gz Tumor/liver/mMdXPyjQfK.nii.gz The liver contains a lesion with subtle arterial enhancement and washout.
+CT/HXlIzVkBp1.nii.gz Organ/liver/HXlIzVkBp1.nii.gz Tumor/liver/hbC4w9qEGJ.nii.gz The liver demonstrates a mass, likely a benign cystic lesion.
+CT/lfnggxylgR.nii.gz Organ/liver/lfnggxylgR.nii.gz Tumor/liver/ZuunmLaqIu.nii.gz The scan reveals cysts and possible granulomas in the liver.
+CT/yq0nsZI7C1.nii.gz Organ/liver/yq0nsZI7C1.nii.gz Tumor/liver/l1ywwkHziw.nii.gz Lesions with arterial enhancement and washout are observed.
+CT/1BSlOciZh7.nii.gz Organ/liver/1BSlOciZh7.nii.gz Tumor/liver/l1ywwkHziw.nii.gz Confluent metastatic lesions are observed in the hepatic area.
+CT/4RJoG34qmf.nii.gz Organ/liver/4RJoG34qmf.nii.gz Tumor/liver/CqXaaz87Bs.nii.gz The liver contains no focal lesions of concern.
+CT/6JVmcmgZ5A.nii.gz Organ/liver/6JVmcmgZ5A.nii.gz Tumor/liver/xo1mzscmxY.nii.gz Hyperenhancing lesions with washout are noted in the liver.
+CT/bGCfPCUPQd.nii.gz Organ/liver/bGCfPCUPQd.nii.gz Tumor/liver/rR05JcnPy4.nii.gz The liver shows indexed lesions.
+CT/dhJZfJu2CP.nii.gz Organ/liver/dhJZfJu2CP.nii.gz Tumor/liver/rR05JcnPy4.nii.gz The scan shows focal steatosis in the hepatic area.
+CT/JtuzXBOi2v.nii.gz Organ/liver/JtuzXBOi2v.nii.gz Tumor/liver/ml5CiY6qbL.nii.gz No focal suspicious lesions are seen in the scan.
+CT/MEiPMug3AI.nii.gz Organ/liver/MEiPMug3AI.nii.gz Tumor/liver/j7ytncWGKw.nii.gz Hypoattenuating regions are observed in the liver.
+CT/MQHxWOuZDd.nii.gz Organ/liver/MQHxWOuZDd.nii.gz Tumor/liver/kdZfZo07h8.nii.gz Heterogeneous enhancement is observed in the liver.
+CT/oo2tlnhhfH.nii.gz Organ/liver/oo2tlnhhfH.nii.gz Tumor/liver/ml5CiY6qbL.nii.gz The liver demonstrates cirrhotic morphology.
+CT/VobtuwXa4X.nii.gz Organ/liver/VobtuwXa4X.nii.gz Tumor/liver/YEgHnpYLEr.nii.gz Cysts and granulomas are noted in the hepatic region.
+CT/Z8HPcGUAJv.nii.gz Organ/liver/Z8HPcGUAJv.nii.gz Tumor/liver/5fGpp6irxs.nii.gz The liver demonstrates hypoattenuating lesions.

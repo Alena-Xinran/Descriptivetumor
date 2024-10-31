@@ -1,0 +1,95 @@
+CT/9S1bjHemuI.nii.gz Organtumor/pancreas/9S1bjHemuI.nii.gz
+CT/CqXaaz87Bs.nii.gz Organtumor/pancreas/CqXaaz87Bs.nii.gz
+CT/eKK06zDgqZ.nii.gz Organtumor/pancreas/eKK06zDgqZ.nii.gz
+CT/HvU9Mpzwjh.nii.gz Organtumor/pancreas/HvU9Mpzwjh.nii.gz
+CT/iIntPCUjRE.nii.gz Organtumor/pancreas/iIntPCUjRE.nii.gz
+CT/is4JDnuJ6t.nii.gz Organtumor/pancreas/is4JDnuJ6t.nii.gz
+CT/l1ywwkHziw.nii.gz Organtumor/pancreas/l1ywwkHziw.nii.gz
+CT/mUwx5xjTY5.nii.gz Organtumor/pancreas/mUwx5xjTY5.nii.gz
+CT/O7BlVFL4bp.nii.gz Organtumor/pancreas/O7BlVFL4bp.nii.gz
+CT/4Hn1f0WrVw.nii.gz Organ/pancreas/4Hn1f0WrVw.nii.gz Tumor/pancreas/mUwx5xjTY5.nii.gz The scan reveals ill-defined lesions with duct dilation.
+CT/j7ytncWGKw.nii.gz Organ/pancreas/j7ytncWGKw.nii.gz Tumor/pancreas/OxAfm9MYHZ.nii.gz A hypodense lesion, likely neoplastic, is seen on the scan.
+CT/2r75lkO3N5.nii.gz Organ/pancreas/2r75lkO3N5.nii.gz Tumor/pancreas/4RJoG34qmf.nii.gz Ill-defined lesions with duct dilation are noted on the scan.
+CT/VWbLO3O3U8.nii.gz Organ/pancreas/VWbLO3O3U8.nii.gz Tumor/pancreas/TWPqGsE32B.nii.gz The scan reveals ill-defined lesions with duct dilation.
+CT/ykFXWdZ1wk.nii.gz Organ/pancreas/ykFXWdZ1wk.nii.gz Tumor/pancreas/4RJoG34qmf.nii.gz The report identifies a hypoattenuating and infiltrative lesion.
+CT/eptDTnD0bX.nii.gz Organ/pancreas/eptDTnD0bX.nii.gz Tumor/pancreas/ykFXWdZ1wk.nii.gz A hypoenhancing mass is noted on the scan.
+CT/JQ5pKQ5B0J.nii.gz Organ/pancreas/JQ5pKQ5B0J.nii.gz Tumor/pancreas/JQ5pKQ5B0J.nii.gz The scan reveals ill-defined and hypointense lesions.
+CT/7ymQy96cJP.nii.gz Organ/pancreas/7ymQy96cJP.nii.gz Tumor/pancreas/DsEBER1tpN.nii.gz The scan reveals a reduction in size and enhancement.
+CT/dgS5CctYuV.nii.gz Organ/pancreas/dgS5CctYuV.nii.gz Tumor/pancreas/W9RNrPG176.nii.gz A focal mass with atrophy is seen on the scan.
+CT/IlhrwH3b8X.nii.gz Organ/pancreas/IlhrwH3b8X.nii.gz Tumor/pancreas/uj3llowlJB.nii.gz Imaging demonstrates hypoattenuating lesions.
+CT/JT3PNQ8Tjl.nii.gz Organ/pancreas/JT3PNQ8Tjl.nii.gz Tumor/pancreas/HvU9Mpzwjh.nii.gz Atrophy and calcifications are seen on the scan.
+CT/1ppaXb2RFD.nii.gz Organ/pancreas/1ppaXb2RFD.nii.gz Tumor/pancreas/xaPR1Q9tmm.nii.gz Ill-defined, hypointense lesions are noted on the scan.
+CT/3fO2PagGGr.nii.gz Organ/pancreas/3fO2PagGGr.nii.gz Tumor/pancreas/W9RNrPG176.nii.gz Decreased size and decreased enhancement are seen on the scan.
+CT/gusJ0BFr1r.nii.gz Organ/pancreas/gusJ0BFr1r.nii.gz Tumor/pancreas/O7BlVFL4bp.nii.gz Imaging demonstrates ill-defined lesions with atrophy.
+CT/wnthW3q3Kh.nii.gz Organ/pancreas/wnthW3q3Kh.nii.gz Tumor/pancreas/eKK06zDgqZ.nii.gz Imaging confirms hypoattenuating lesions.
+CT/EDJibCqFZA.nii.gz Organ/pancreas/EDJibCqFZA.nii.gz Tumor/pancreas/O7BlVFL4bp.nii.gz A hypoenhancing mass is seen on the scan.
+CT/Mvk4cYe1XI.nii.gz Organ/pancreas/Mvk4cYe1XI.nii.gz Tumor/pancreas/TWPqGsE32B.nii.gz The report identifies a hypoattenuating lesion with ductal dilation.
+CT/UjoWDn5waI.nii.gz Organ/pancreas/UjoWDn5waI.nii.gz Tumor/pancreas/eKK06zDgqZ.nii.gz The scan reveals atrophy and calcifications.
+CT/oxKFVOQhrt.nii.gz Organ/pancreas/oxKFVOQhrt.nii.gz Tumor/pancreas/uj3llowlJB.nii.gz Imaging confirms a necrotic lesion involving arteries.
+CT/cGlaONzhne.nii.gz Organ/pancreas/cGlaONzhne.nii.gz Tumor/pancreas/iIntPCUjRE.nii.gz Imaging demonstrates a hypoenhancing mass.
+CT/1ED6Dx3RDh.nii.gz Organ/pancreas/1ED6Dx3RDh.nii.gz Tumor/pancreas/9S1bjHemuI.nii.gz A hypoattenuating, infiltrative lesion is noted on the scan.
+CT/yIO087CLBq.nii.gz Organ/pancreas/yIO087CLBq.nii.gz Tumor/pancreas/CqXaaz87Bs.nii.gz Ill-defined lesions with atrophy are observed on the scan.
+CT/fUD6KMa9a3.nii.gz Organ/pancreas/fUD6KMa9a3.nii.gz Tumor/pancreas/l1ywwkHziw.nii.gz Imaging confirms ill-defined and hypointense lesions.
+CT/t7DL3nTlSo.nii.gz Organ/pancreas/t7DL3nTlSo.nii.gz Tumor/pancreas/j7ytncWGKw.nii.gz The scan shows a lesion that is increasing in size with fat stranding.
+CT/B4bVSZYpuh.nii.gz Organ/pancreas/B4bVSZYpuh.nii.gz Tumor/pancreas/DsEBER1tpN.nii.gz Ill-defined lesions with duct dilation are observed on imaging.
+CT/GfecTH2Vze.nii.gz Organ/pancreas/GfecTH2Vze.nii.gz Tumor/pancreas/cgPZ4zAbww.nii.gz A focal mass with atrophy is observed on the scan.
+CT/jJhcqh341L.nii.gz Organ/pancreas/jJhcqh341L.nii.gz Tumor/pancreas/MEiPMug3AI.nii.gz Imaging confirms the presence of a hypoenhancing mass.
+CT/mhHGrjSx4L.nii.gz Organ/pancreas/mhHGrjSx4L.nii.gz Tumor/pancreas/TWPqGsE32B.nii.gz The scan shows a focal mass with atrophy.
+CT/7fsTDwd7Kb.nii.gz Organ/pancreas/7fsTDwd7Kb.nii.gz Tumor/pancreas/CqXaaz87Bs.nii.gz The scan shows atrophy with calcifications.
+CT/YEgHnpYLEr.nii.gz Organ/pancreas/YEgHnpYLEr.nii.gz Tumor/pancreas/ykFXWdZ1wk.nii.gz Imaging confirms the presence of atrophy and calcifications.
+CT/lAxpCqKxTk.nii.gz Organ/pancreas/lAxpCqKxTk.nii.gz Tumor/pancreas/9S1bjHemuI.nii.gz Hypoattenuating lesions are observed on the scan.
+CT/Z29hK8kU4b.nii.gz Organ/pancreas/Z29hK8kU4b.nii.gz Tumor/pancreas/W9RNrPG176.nii.gz A hypoenhancing mass is seen on the scan.
+CT/EbF6DY51NT.nii.gz Organ/pancreas/EbF6DY51NT.nii.gz Tumor/pancreas/dhJZfJu2CP.nii.gz Imaging confirms the presence of a hypoenhancing mass.
+CT/QzBK1S896K.nii.gz Organ/pancreas/QzBK1S896K.nii.gz Tumor/pancreas/eKK06zDgqZ.nii.gz Imaging demonstrates enlarging lesions with ductal dilation.
+CT/mXHxO3Giq4.nii.gz Organ/pancreas/mXHxO3Giq4.nii.gz Tumor/pancreas/iIntPCUjRE.nii.gz Enlarging lesions with ductal dilation are seen on the scan.
+CT/InkB0ZhUE9.nii.gz Organ/pancreas/InkB0ZhUE9.nii.gz Tumor/pancreas/wJl8PXHdVm.nii.gz The scan shows atrophy with calcifications.
+CT/ml5CiY6qbL.nii.gz Organ/pancreas/ml5CiY6qbL.nii.gz Tumor/pancreas/tQJ4z5l1B6.nii.gz A focal mass with atrophy is observed on the scan.
+CT/2HZYQXU0vt.nii.gz Organ/pancreas/2HZYQXU0vt.nii.gz Tumor/pancreas/JQ5pKQ5B0J.nii.gz The scan shows atrophy with calcifications.
+CT/Jl7Br23A35.nii.gz Organ/pancreas/Jl7Br23A35.nii.gz Tumor/pancreas/J3Ok1tE9ic.nii.gz The report identifies atrophy and calcifications.
+CT/V2P3n7SyGG.nii.gz Organ/pancreas/V2P3n7SyGG.nii.gz Tumor/pancreas/l1ywwkHziw.nii.gz Imaging confirms hypoattenuating lesions.
+CT/gCtbylVicC.nii.gz Organ/pancreas/gCtbylVicC.nii.gz Tumor/pancreas/JQ5pKQ5B0J.nii.gz Atrophy and calcifications are noted on the scan.
+CT/Cr0GoPyd5B.nii.gz Organ/pancreas/Cr0GoPyd5B.nii.gz Tumor/pancreas/ta6ZAp78Mq.nii.gz Atrophy and calcifications are observed on imaging.
+CT/I0UhCht23c.nii.gz Organ/pancreas/I0UhCht23c.nii.gz Tumor/pancreas/bRo9Sdmi7H.nii.gz Decreased size and decreased enhancement are seen on the scan.
+CT/6AMSpjEoFf.nii.gz Organ/pancreas/6AMSpjEoFf.nii.gz Tumor/pancreas/TWPqGsE32B.nii.gz Imaging confirms atrophy and calcifications.
+CT/qpCcDLSCvM.nii.gz Organ/pancreas/qpCcDLSCvM.nii.gz Tumor/pancreas/xaPR1Q9tmm.nii.gz Imaging confirms enlarging lesions with ductal dilation.
+CT/VzQtMOxKMM.nii.gz Organ/pancreas/VzQtMOxKMM.nii.gz Tumor/pancreas/iIntPCUjRE.nii.gz A hypodense lesion, likely neoplastic, is observed on the scan.
+CT/1eyUQzYT03.nii.gz Organ/pancreas/1eyUQzYT03.nii.gz Tumor/pancreas/xaPR1Q9tmm.nii.gz The scan shows a hypoattenuating and infiltrative lesion.
+CT/iC9bgDGmdL.nii.gz Organ/pancreas/iC9bgDGmdL.nii.gz Tumor/pancreas/W9RNrPG176.nii.gz The scan reveals ill-defined lesions with duct dilation.
+CT/FkD6K8Pjt4.nii.gz Organ/pancreas/FkD6K8Pjt4.nii.gz Tumor/pancreas/dhJZfJu2CP.nii.gz Imaging demonstrates a necrotic lesion involving arteries.
+CT/UvWwZNGTj3.nii.gz Organ/pancreas/UvWwZNGTj3.nii.gz Tumor/pancreas/JQ5pKQ5B0J.nii.gz Imaging confirms a lesion with increasing size and fat stranding.
+CT/LpiYvVHzhF.nii.gz Organ/pancreas/LpiYvVHzhF.nii.gz Tumor/pancreas/is4JDnuJ6t.nii.gz The scan shows a hypoattenuating lesion and ductal dilation.
+CT/DsEBER1tpN.nii.gz Organ/pancreas/DsEBER1tpN.nii.gz Tumor/pancreas/iIntPCUjRE.nii.gz The report identifies a hypoattenuating lesion with ductal dilation.
+CT/W9RNrPG176.nii.gz Organ/pancreas/W9RNrPG176.nii.gz Tumor/pancreas/dhJZfJu2CP.nii.gz A reduction in size and enhancement is observed on the scan.
+CT/8OjhPcoA9K.nii.gz Organ/pancreas/8OjhPcoA9K.nii.gz Tumor/pancreas/rR05JcnPy4.nii.gz The report identifies enlarging lesions with ductal dilation.
+CT/ZqrbDZXDAv.nii.gz Organ/pancreas/ZqrbDZXDAv.nii.gz Tumor/pancreas/eKK06zDgqZ.nii.gz The report identifies ill-defined lesions with duct dilation.
+CT/S5u7OR9YaR.nii.gz Organ/pancreas/S5u7OR9YaR.nii.gz Tumor/pancreas/chcZad9913.nii.gz The scan shows a focal mass with atrophy.
+CT/dZNX2WI4ki.nii.gz Organ/pancreas/dZNX2WI4ki.nii.gz Tumor/pancreas/l1ywwkHziw.nii.gz The report identifies decreased size with decreased enhancement.
+CT/WniHhh5OB8.nii.gz Organ/pancreas/WniHhh5OB8.nii.gz Tumor/pancreas/9S1bjHemuI.nii.gz Ill-defined and hypointense lesions are seen on the scan.
+CT/N7TgZnYLlX.nii.gz Organ/pancreas/N7TgZnYLlX.nii.gz Tumor/pancreas/rR05JcnPy4.nii.gz The report identifies ill-defined lesions with atrophy.
+CT/9w29riwvZd.nii.gz Organ/pancreas/9w29riwvZd.nii.gz Tumor/pancreas/O7BlVFL4bp.nii.gz A hypoenhancing mass is seen on the scan.
+CT/QZBWrfmrIM.nii.gz Organ/pancreas/QZBWrfmrIM.nii.gz Tumor/pancreas/CqXaaz87Bs.nii.gz Imaging confirms a focal mass with atrophy.
+CT/GymqmuNrRX.nii.gz Organ/pancreas/GymqmuNrRX.nii.gz Tumor/pancreas/uj3llowlJB.nii.gz A necrotic lesion involving arteries is observed on the scan.
+CT/M6IKVUEWZ1.nii.gz Organ/pancreas/M6IKVUEWZ1.nii.gz Tumor/pancreas/l1ywwkHziw.nii.gz The scan shows atrophy and calcifications.
+CT/m93Xr4QbkM.nii.gz Organ/pancreas/m93Xr4QbkM.nii.gz Tumor/pancreas/wJl8PXHdVm.nii.gz The report identifies a focal mass and atrophy.
+CT/CWIOCAu24b.nii.gz Organ/pancreas/CWIOCAu24b.nii.gz Tumor/pancreas/XyARefRcpw.nii.gz A hypoattenuating, infiltrative lesion is observed on the scan.
+CT/NEs1IhpLEJ.nii.gz Organ/pancreas/NEs1IhpLEJ.nii.gz Tumor/pancreas/uj3llowlJB.nii.gz A hypoattenuating lesion and ductal dilation are noted on the scan.
+CT/5fGpp6irxs.nii.gz Organ/pancreas/5fGpp6irxs.nii.gz Tumor/pancreas/j7ytncWGKw.nii.gz Imaging demonstrates ill-defined lesions with duct dilation.
+CT/ZuunmLaqIu.nii.gz Organ/pancreas/ZuunmLaqIu.nii.gz Tumor/pancreas/JQ5pKQ5B0J.nii.gz A lesion with increasing size and fat stranding is noted on the scan.
+CT/5VT0If1wlE.nii.gz Organ/pancreas/5VT0If1wlE.nii.gz Tumor/pancreas/OQ55W5cRs6.nii.gz Ill-defined, hypointense lesions are noted on the scan.
+CT/w8x0zarHGh.nii.gz Organ/pancreas/w8x0zarHGh.nii.gz Tumor/pancreas/9S1bjHemuI.nii.gz Ill-defined lesions and atrophy are noted on the scan.
+CT/LA2GQOasC6.nii.gz Organ/pancreas/LA2GQOasC6.nii.gz Tumor/pancreas/J3Ok1tE9ic.nii.gz The scan reveals ill-defined lesions and atrophy.
+CT/ytPgvu5eqW.nii.gz Organ/pancreas/ytPgvu5eqW.nii.gz Tumor/pancreas/dhJZfJu2CP.nii.gz Atrophy and calcifications are seen on the scan.
+CT/yJDJ5HVWoz.nii.gz Organ/pancreas/yJDJ5HVWoz.nii.gz Tumor/pancreas/iIntPCUjRE.nii.gz The scan reveals a necrotic lesion involving arteries.
+CT/DSkVGh8Dok.nii.gz Organ/pancreas/DSkVGh8Dok.nii.gz Tumor/pancreas/wJl8PXHdVm.nii.gz A hypoenhancing mass is noted on the scan.
+CT/7UEWJ8E9na.nii.gz Organ/pancreas/7UEWJ8E9na.nii.gz Tumor/pancreas/uyuqWNEvrj.nii.gz The scan reveals atrophy and calcifications.
+CT/kXeKxUyyk9.nii.gz Organ/pancreas/kXeKxUyyk9.nii.gz Tumor/pancreas/XyARefRcpw.nii.gz The scan shows a hypoattenuating and infiltrative lesion.
+CT/mMdXPyjQfK.nii.gz Organ/pancreas/mMdXPyjQfK.nii.gz Tumor/pancreas/ta6ZAp78Mq.nii.gz The scan shows ill-defined and hypointense lesions.
+CT/RF8F0AvBoW.nii.gz Organ/pancreas/RF8F0AvBoW.nii.gz Tumor/pancreas/XyARefRcpw.nii.gz Ill-defined lesions with atrophy are seen on the scan.
+CT/rvROFPZkXL.nii.gz Organ/pancreas/rvROFPZkXL.nii.gz Tumor/pancreas/MEiPMug3AI.nii.gz Imaging demonstrates a focal mass and atrophy.
+CT/HXlIzVkBp1.nii.gz Organ/pancreas/HXlIzVkBp1.nii.gz Tumor/pancreas/j7ytncWGKw.nii.gz Hypoattenuating lesions are seen on the scan.
+CT/chcZad9913.nii.gz Organ/pancreas/chcZad9913.nii.gz Tumor/pancreas/xh94qfjEO1.nii.gz Atrophy with calcifications is seen on the scan.
+CT/cgPZ4zAbww.nii.gz Organ/pancreas/cgPZ4zAbww.nii.gz Tumor/pancreas/xaPR1Q9tmm.nii.gz Imaging demonstrates atrophy with calcifications.
+CT/uyuqWNEvrj.nii.gz Organ/pancreas/uyuqWNEvrj.nii.gz Tumor/pancreas/chcZad9913.nii.gz Imaging demonstrates ill-defined, hypointense lesions.
+CT/lfnggxylgR.nii.gz Organ/pancreas/lfnggxylgR.nii.gz Tumor/pancreas/ykFXWdZ1wk.nii.gz A focal mass with atrophy is noted on the scan.
+CT/yq0nsZI7C1.nii.gz Organ/pancreas/yq0nsZI7C1.nii.gz Tumor/pancreas/DsEBER1tpN.nii.gz The scan reveals a lesion that has increased in size and shows fat stranding.
+CT/ZHP9gpjHys.nii.gz Organ/pancreas/ZHP9gpjHys.nii.gz Tumor/pancreas/cgPZ4zAbww.nii.gz Hypoattenuating lesions are seen on the scan.

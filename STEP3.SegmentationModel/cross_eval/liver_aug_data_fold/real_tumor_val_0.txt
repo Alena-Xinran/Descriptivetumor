@@ -1,0 +1,8 @@
+miss/missimg/liver/liver_15.nii.gz miss/misslabel/liver/liver_15.nii.gz
+miss/missimg/liver/liver_45.nii.gz miss/misslabel/liver/liver_45.nii.gz
+miss/missimg/liver/liver_54.nii.gz miss/misslabel/liver/liver_54.nii.gz
+miss/missimg/liver/liver_58.nii.gz miss/misslabel/liver/liver_58.nii.gz
+miss/missimg/liver/liver_59.nii.gz miss/misslabel/liver/liver_59.nii.gz
+miss/missimg/liver/liver_67.nii.gz miss/misslabel/liver/liver_67.nii.gz
+miss/missimg/liver/liver_73.nii.gz miss/misslabel/liver/liver_73.nii.gz
+miss/missimg/liver/liver_83.nii.gz miss/misslabel/liver/liver_83.nii.gz

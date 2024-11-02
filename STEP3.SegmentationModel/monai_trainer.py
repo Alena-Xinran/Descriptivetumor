@@ -257,9 +257,9 @@ def train_epoch(model, loader, optimizer, scaler, epoch, loss_func, args, tumor_
     if args.organ_type == 'liver':
         sample_thresh = 0
     elif args.organ_type == 'pancreas':
-        sample_thresh = 1
+        sample_thresh = 0.5
     elif args.organ_type == 'kidney':
-        sample_thresh = 1
+        sample_thresh = 0.5
 
     # Model preparation
     vqgan, early_sampler = synt_model_prepare(device=torch.device("cuda", args.rank), fold=args.fold, organ=args.organ_model)
@@ -276,16 +276,13 @@ def train_epoch(model, loader, optimizer, scaler, epoch, loss_func, args, tumor_
             data_name = data_names[bs]
             text = texts[bs]
             if text != '':
-                device = target.device
+                healthy_data = data[bs][None, ...]
+                healthy_organ_target = target[bs][None, ...]
 
-                if random.random() > sample_thresh:
-                    healthy_data = data[bs][None, ...]
-                    healthy_organ_target = target[bs][None, ...]
+                synt_data, organ_tumor_mask,total_tumor_mask = synthesize_tumor(healthy_data, healthy_organ_target, args.organ_type, vqgan, early_sampler, text_description=text)
 
-                    synt_data, organ_tumor_mask,total_tumor_mask = synthesize_tumor(healthy_data, healthy_organ_target, args.organ_type, vqgan, early_sampler, text_description=text)
-
-                    data[bs, ...] = synt_data[0]
-                    target[bs, ...] = organ_tumor_mask[0]
+                data[bs, ...] = synt_data[0]
+                target[bs, ...] = organ_tumor_mask[0]
 
         data = data.detach()
         target = target.detach()

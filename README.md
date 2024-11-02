@@ -1,5 +1,7 @@
 # Step 1: Download Datasets for Descriptivetumor Baseline
 ```bash
+git clone https://github.com/Alena-Xinran/Descriptivetumor.git
+
 cd Descriptivetumor/baseline1/
 ```
 ```bash

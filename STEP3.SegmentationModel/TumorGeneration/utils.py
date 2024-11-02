@@ -266,23 +266,21 @@ def generate_weight_based_on_text(text_description):
 
     return np.clip(weight, 0, 1)
 
-def synthesize_tumor(ct_volume, organ_mask, organ_type, vqgan, tester, text_description=None):
+def synthesize_tumor(ct_volume, organ_mask, organ_type, vqgan, tester, text_description=None, ddim_ts=50):
     device = ct_volume.device
 
     weight = generate_weight_based_on_text(text_description)
 
-    tumor_types = ['tiny', 'small']
-    tumor_probs = np.array([0.5, 0.5])
+    tumor_types = ['tiny', 'small','medium','large']
+    tumor_probs = np.array([0.25, 0.25,0.25,0.25])
     total_tumor_mask = []
     organ_mask_np = organ_mask.cpu().numpy()
-
     with torch.no_grad():
         for bs in range(organ_mask_np.shape[0]):
             synthetic_tumor_type = np.random.choice(tumor_types, p=tumor_probs.ravel())
-            tumor_mask = get_fixed_geo(organ_mask_np[bs, 0], synthetic_tumor_type, organ_type)
-            total_tumor_mask.append(torch.from_numpy(tumor_mask)[None, :])
+            tumor_mask = get_fixed_geo(organ_mask_np[bs,0], synthetic_tumor_type, organ_type)
+            total_tumor_mask.append(torch.from_numpy(tumor_mask)[None,:])
         total_tumor_mask = torch.stack(total_tumor_mask, dim=0).to(dtype=torch.float32, device=device)
-
         volume = ct_volume * 2.0 - 1.0
         mask = total_tumor_mask * 2.0 - 1.0
         mask_ = 1 - total_tumor_mask
@@ -313,7 +311,7 @@ def synthesize_tumor(ct_volume, organ_mask, organ_type, vqgan, tester, text_desc
             sample_ = torch.nn.functional.interpolate(sample_, size=volume_.shape[2:], mode='trilinear', align_corners=False)
 
         mask_01_blur = torch.from_numpy(mask_01_np_blur).to(device=device)
-        final_volume_ = volume_ * (1 - mask_01_blur * weight) + sample_ * mask_01_blur * weight
+        final_volume_ = volume_ * (1 - mask_01_blur) * weight + sample_ * mask_01_blur * weight
         final_volume_ = torch.clamp(final_volume_, min=-100, max=200)
 
         final_volume_ = final_volume_.permute(0, 1, -2, -1, -3)

@@ -16,7 +16,7 @@ import sys
 from os import environ
 import os
 import sys
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
+os.environ["CUDA_VISIBLE_DEVICES"] = "7"
 from monai.inferers import sliding_window_inference
 # from monai.data import DataLoader, Dataset
 from monai.losses import DiceLoss, DiceCELoss
@@ -127,248 +127,6 @@ parser.add_argument('--use_pretrained', action='store_true')
 
 import numpy as np
 
-
-# class RandCropByPosNegLabeld_select(transforms.RandCropByPosNegLabeld):
-#     def __init__(self, keys, label_key, spatial_size, 
-#                  pos=1.0, neg=1.0, num_samples=1, 
-#                  image_key=None, image_threshold=0.0, allow_missing_keys=True,
-#                  fg_thresh=0):
-#         super().__init__(keys=keys, label_key=label_key, spatial_size=spatial_size, 
-#                          pos=pos, neg=neg, num_samples=num_samples, 
-#                          image_key=image_key, image_threshold=image_threshold, 
-#                          allow_missing_keys=allow_missing_keys)
-#         self.fg_thresh = fg_thresh
-
-#     def R2voxel(self, R):
-#         return (4/3) * np.pi * (R)**3
-
-
-#     def check_shape_and_fix(self, image, label):
-#         """Ensure label matches the shape of the image, resize/pad the label if necessary."""
-#         # Convert image and label from numpy arrays to PyTorch tensors if necessary
-#         if isinstance(image, np.ndarray):
-#             image = torch.from_numpy(image)
-#         if isinstance(label, np.ndarray):
-#             label = torch.from_numpy(label)
-
-#         # Check if the label needs to be resized to match the image
-#         if image.shape != label.shape:
-#             #print(f"Resizing label to match image shape: {image.shape} vs {label.shape}")
-            
-#             # Extract the target spatial shape from the image (ignore the batch and channel dimensions)
-#             target_shape = image.shape[1:]  # (D, H, W)
-
-#             label = torch.nn.functional.interpolate(label.unsqueeze(0), size=target_shape, mode='nearest').squeeze(0)
-
-#         if image.is_cuda:  # Ensure the tensor is on the CPU before converting to numpy
-#             image = image.cpu()
-#         if label.is_cuda:
-#             label = label.cpu()
-
-#         image = image.numpy()  # Convert back to NumPy array
-#         label = label.numpy()
-
-#         return image, label
-
-
-
-#     def __call__(self, data):
-#         d = dict(data)
-#         data_name = d['name']
-#         data_text = d['text']
-#         d.pop('name')
-
-#         d['image'], d['label'] = self.check_shape_and_fix(d['image'], d['label'])
-
-#         if data_text != "":
-#             flag = 0
-#             valid_crop_found = False
-#             d_crop = None
-            
-#             while flag <= 30:
-#                 flag += 1
-#                 d_crop = super().__call__(d)
-#                 pixel_num = (d_crop[0]['label'] > 0).sum()
-                
-#                 if pixel_num > self.R2voxel(self.fg_thresh):
-#                     valid_crop_found = True
-#                     break
-#                 elif flag > 5 and pixel_num > self.R2voxel(max(self.fg_thresh - 5, 5)):
-#                     valid_crop_found = True
-#                     break
-#                 elif flag > 10 and pixel_num > self.R2voxel(max(self.fg_thresh - 10, 5)):
-#                     valid_crop_found = True
-#                     break
-#                 elif flag > 15 and pixel_num > self.R2voxel(max(self.fg_thresh - 15, 5)):
-#                     valid_crop_found = True
-#                     break
-#                 elif flag > 20 and pixel_num > self.R2voxel(max(self.fg_thresh - 20, 5)):
-#                     valid_crop_found = True
-#                     break
-#                 elif flag > 25 and pixel_num > self.R2voxel(max(self.fg_thresh - 25, 5)):
-#                     valid_crop_found = True
-#                     break
-
-#             if not valid_crop_found:
-#                 print(f"Warning: Could not find a valid crop after {flag} attempts.")
-#         else:
-#             d_crop = super().__call__(d)
-
-#         d_crop[0]['name'] = data_name
-#         return d_crop
-
-# class RandCropByPosNegLabeld_select(transforms.RandCropByPosNegLabeld):
-#     def __init__(self, keys, label_key, spatial_size, 
-#                  pos=1.0, neg=1.0, num_samples=1, 
-#                  image_key=None, image_threshold=0.0, allow_missing_keys=True,
-#                    fg_thresh=0):
-#         super().__init__(keys=keys, label_key=label_key, spatial_size=spatial_size, 
-#                  pos=pos, neg=neg, num_samples=num_samples, 
-#                  image_key=image_key, image_threshold=image_threshold, allow_missing_keys=allow_missing_keys)
-#         self.fg_thresh = fg_thresh
-
-#     def R2voxel(self,R):
-#         return (4/3*np.pi)*(R)**(3)
-
-#     def __call__(self, data):
-#         d = dict(data)
-#         data_name = d['name']
-#         data_text = d['text']
-#         d.pop('name')
-#         if data_text != "":
-#             flag = 0
-#             while True:
-#                 flag += 1
-#                 d_crop = super().__call__(d)
-#                 pixel_num_label1 = (d_crop[0]['label'] > 0).sum()
-#                 pixel_num_label2 = (d_crop[0]['label2'] > 0).sum()
-#                 pixel_num = pixel_num_label1 + pixel_num_label2
-#                 if pixel_num > self.R2voxel(self.fg_thresh):
-#                     break
-#                 if flag > 5 and pixel_num > self.R2voxel(max(self.fg_thresh - 5, 5)):
-#                     break
-#                 if flag > 10 and pixel_num > self.R2voxel(max(self.fg_thresh - 10, 5)):
-#                     break
-#                 if flag > 15 and pixel_num > self.R2voxel(max(self.fg_thresh - 15, 5)):
-#                     break
-#                 if flag > 20 and pixel_num > self.R2voxel(max(self.fg_thresh - 20, 5)):
-#                     break
-#                 if flag > 25 and pixel_num > self.R2voxel(max(self.fg_thresh - 25, 5)):
-#                     break
-#                 if flag > 30:
-#                     break
-#         else:
-#             d_crop = super().__call__(d)
-#         d_crop[0]['name'] = data_name
-
-#         return d_crop
-
-
-# import SimpleITK as sitk
-# import numpy as np
-# from monai.transforms import Transform
-
-# from monai.transforms import LoadImaged
-# import numpy as np
-
-# class LoadImageWithLabel2(MapTransform):
-#     def __init__(self, organ_type):
-#         super().__init__(keys=["image", "label", "label2", "text"])
-#         self.reader = LoadImaged(keys=["image", "label"])  
-#         self.label2_reader = LoadImaged(keys=["label2"])
-#         self.organ_type = organ_type
-
-#     def __call__(self, data):
-#         d = dict(data)
-#         data_name = d.get('name', '') 
-#         if d.get('label2', '') == '':  
-#             print("label2 is empty, setting label2 to zeros with the same shape as label.")
-#             d['label2'] = np.zeros_like(d['label'])  
-#         else:
-#             print("label2 is not empty, loading label2 using LoadImaged.")
-#             d = self.label2_reader(d)
-
-#         d = self.reader(d)
-
-#         return d
-
-# class LoadImage_train(MapTransform):
-#     def __init__(self, organ_type):
-#         super().__init__(keys=["image", "label", "label2", "text"])
-#         self.reader1 = transforms.LoadImaged(keys=["image", "label", "label2"])
-#         self.organ_type = organ_type
-
-#     def __call__(self, data):
-#         d = dict(data)
-
-#         data_name = d.get('name', '')
-
-#         if d.get('label2') is None:
-#             d['label2'] = np.zeros_like(d['label'])
-
-#         d['text'] = d.get('text', '')
-#         d = self.reader1(d)
-#         return d
-
-    
-# class LoadImage_val(transforms.LoadImaged):
-#     def __init__(self, keys, *args,**kwargs, ):
-#         super().__init__(keys)
-
-#     def __call__(self, data):
-#         d = dict(data)
-#         data_name = d['name']
-
-#         d = super().__call__(d)
-#         d['label'][d['label']==3] = 1
-
-#         return d
-    
-# class SimpleITKSpacingTransform(Transform):
-#     def __init__(self, keys, target_spacing):
-#         self.keys = keys
-#         self.target_spacing = target_spacing
-    
-#     def resample_image(self, image, target_spacing, is_label=False):
-#         original_spacing = image.GetSpacing()
-#         original_size = image.GetSize()
-
-
-#         new_size = [
-#             int(round(original_size[i] * (original_spacing[i] / target_spacing[i])))
-#             for i in range(3)
-#         ]
-        
-
-#         resampler = sitk.ResampleImageFilter()
-#         resampler.SetOutputSpacing(target_spacing)
-#         resampler.SetSize(new_size)
-#         resampler.SetOutputDirection(image.GetDirection())
-#         resampler.SetOutputOrigin(image.GetOrigin())
-
-
-#         if is_label:
-#             resampler.SetInterpolator(sitk.sitkNearestNeighbor)
-#         else:
-#             resampler.SetInterpolator(sitk.sitkLinear)
-
-#         resampled_image = resampler.Execute(image)
-#         return resampled_image
-    
-#     def __call__(self, data):
-
-#         for key in self.keys:
-#             image = data[key]
-#             print(f"Image dtype: {image.dtype}, shape: {image.shape}")
-            
-#             # 检查是否为数值类型
-#             if not np.issubdtype(image.dtype, np.number):
-#                 raise TypeError(f"Expected a numeric array, but got {image.dtype}")
-#             sitk_image = sitk.GetImageFromArray(image)  
-#             resampled_sitk_image = self.resample_image(sitk_image, self.target_spacing, is_label=("label" in key))
-#             data[key] = sitk.GetArrayFromImage(resampled_sitk_image)
-        
-#         return data
 
 
 class RandCropByPosNegLabeld_select(transforms.RandCropByPosNegLabeld):
@@ -664,31 +422,24 @@ def main_worker(gpu, args):
     
     train_img = []
     train_lbl = []
-    train_lbl2 = []
     train_name = []
     train_text = []
-
-    # Open your training text file
     train_txt = os.path.join(datafold_dir, 'real_{}_train_{}.txt'.format(tumor_type, fold))
 
     for line in open(train_txt):
-        # Split the line into tokens
+
         tokens = line.strip().split()
-        # Extract the name from the organ label path
         name = tokens[1].split('.')[0]
 
-        if len(tokens) > 3:
-            # Healthy data with text
+        if len(tokens) > 1:
             ct_path = tokens[0]
             organ_label_path = tokens[1]
-            # tumor_label_path = tokens[2]
-            # Join the remaining tokens as the text
             text = ' '.join(tokens[2:])
             train_img.append(os.path.join(data_root, ct_path))
             train_lbl.append(os.path.join(data_root, organ_label_path))
-            # train_lbl2.append(os.path.join(data_root, tumor_label_path))
             train_name.append(name)
             train_text.append(text)
+            print("----",text)
         else:
             # Unhealthy data without text
             ct_path = tokens[0]
@@ -696,11 +447,10 @@ def main_worker(gpu, args):
             text = ''
             train_img.append(os.path.join(data_root, ct_path))
             train_lbl.append(os.path.join(data_root, organ_tumor_label_path))
-            # train_lbl2.append(label2)
             train_name.append(name)
             train_text.append(text)
+            print("----",text)
 
-    # Create training data dictionaries with the new 'text' field
     data_dicts_train = [{'image': image, 'label': label, 'name': name, 'text': text}
                         for image, label, name, text in zip(train_img, train_lbl, train_name, train_text)]
 

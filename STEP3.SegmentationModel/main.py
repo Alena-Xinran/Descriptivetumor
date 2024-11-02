@@ -467,7 +467,7 @@ def main_worker(gpu, args):
         val_img.append(os.path.join(data_root, ct_path))
         val_lbl.append(os.path.join(data_root, organ_tumor_label_path))
         val_name.append(name)
-        val_pseudo_lbl.append('/ccvl/net/ccvl15/xinran/ReportTumor/STEP3.SegmentationModel/organ_pseudo_swin_new/{}/{}'.format(organ_type, os.path.basename(organ_tumor_label_path)))
+        val_pseudo_lbl.append('/organ_pseudo_swin_new/{}/{}'.format(organ_type, os.path.basename(organ_tumor_label_path)))
 
     data_dicts_val = [{'image': image, 'label': label, 'organ_pseudo': organ_pseudo, 'name': name}
                       for image, label, organ_pseudo, name in zip(val_img, val_lbl, val_pseudo_lbl, val_name)]

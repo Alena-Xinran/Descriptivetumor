@@ -167,7 +167,6 @@ class RandCropByPosNegLabeld_select(transforms.RandCropByPosNegLabeld):
 
 
     def __call__(self, data):
-        # 取出数据并复制字典
         d = dict(data)
         data_name = d['name']
         data_text = d['text']
@@ -439,7 +438,6 @@ def main_worker(gpu, args):
             train_lbl.append(os.path.join(data_root, organ_label_path))
             train_name.append(name)
             train_text.append(text)
-            print("----",text)
         else:
             # Unhealthy data without text
             ct_path = tokens[0]
@@ -449,7 +447,6 @@ def main_worker(gpu, args):
             train_lbl.append(os.path.join(data_root, organ_tumor_label_path))
             train_name.append(name)
             train_text.append(text)
-            print("----",text)
 
     data_dicts_train = [{'image': image, 'label': label, 'name': name, 'text': text}
                         for image, label, name, text in zip(train_img, train_lbl, train_name, train_text)]

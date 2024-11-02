@@ -25,5 +25,5 @@ healthy_datapath=/ccvl/net/ccvl15/zzhou82/data/AbdomenAtlas/image_mask/AbdomenAt
 ```
 Set datapath to the root directory where Task03_Liver, Task07_Pancreas, and KiTS.tar.gz are downloaded
 ```bash
-datapath=/ccvl/net/ccvl15/xinran/
+datapath=Descriptivetumor/baseline1/
 ```

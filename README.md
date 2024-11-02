@@ -1,42 +1,20 @@
-# DescriptiveTumor
+# Step 1: Download Datasets for Descriptivetumor Baseline
+cd Descriptivetumor/baseline1/
 
-## All Checkpoints Link
-https://drive.google.com/drive/folders/1v0TyqVyXjoALSFaTt4l3u4eh0k4jO_V5?usp=drive_link
+wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/10_Decathlon/Task03_Liver.tar.gz?download=true # Task03_Liver.tar.gz (28.7 GB)
+wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/10_Decathlon/Task07_Pancreas.tar.gz?download=true # Task07_Pancreas.tar.gz (28.7 GB)
+wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/05_KiTS.tar.gz # KiTS.tar.gz (28 GB)
 
-## Steps
-### 1. Replace Files
-Replace the following files in the Difftumor/STEP3.SegmentationModel directory:
+# Step 2: Prepare Model Weights for Tumor Generation
+cd TumorGeneration/model_weight/
 
-main.py
+wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/ma
+# Add the following files from Google Drive to TumorGeneration/model_weight/
+# https://drive.google.com/drive/folders/1bpZMvAj9Wj8WSPnV9EJAs9gJYSE1mad6
 
-monai_trainer.py
+# Step 3: Modify Paths in hg.sh File in Baseline1
+# Set healthy_datapath to the directory containing AbdomenAtlas1.1Mini
+healthy_datapath=/ccvl/net/ccvl15/zzhou82/data/AbdomenAtlas/image_mask/AbdomenAtlas1.1Mini/AbdomenAtlas1.1Mini/
 
-TumorGeneration/utils.py
-
-hg.sh
-
-cross_eval folder
-
-### 2. Update Data Path
-Modify the data path in hg.sh to point to your dataset.
-### 3. Train Specific Fold
-Set fold=0 to train a specific fold.
-### 4. Return Checkpoints
-Three checkpoints will be generated:
-
-difftumor-liver
-
-difftumor-pancreas
-
-difftumor-kidney
-
-### 5. Future Checkpoint Updates
-Subsequent checkpoints will use the following names:
-
-descriptivetumor1 for liver, pancreas, kidney
-
-descriptivetumor2 for liver, pancreas, kidney
-
-descriptivetumor3 for liver, pancreas, kidney
-
-Train across 5 folds and return the checkpoints sequentially.
+# Set datapath to the root directory where Task03_Liver, Task07_Pancreas, and KiTS.tar.gz are downloaded
+datapath=/ccvl/net/ccvl15/xinran/

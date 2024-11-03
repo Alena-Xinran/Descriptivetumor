@@ -255,7 +255,7 @@ def train_epoch(model, loader, optimizer, scaler, epoch, loss_func, args, tumor_
     run_loss = AverageMeter()
 
     if args.organ_type == 'liver':
-        sample_thresh = 0
+        sample_thresh = 0.5
     elif args.organ_type == 'pancreas':
         sample_thresh = 0.5
     elif args.organ_type == 'kidney':
@@ -276,13 +276,14 @@ def train_epoch(model, loader, optimizer, scaler, epoch, loss_func, args, tumor_
             data_name = data_names[bs]
             text = texts[bs]
             if text != '':
-                healthy_data = data[bs][None, ...]
-                healthy_organ_target = target[bs][None, ...]
+                if random.random() > sample_thresh:
+                    healthy_data = data[bs][None, ...]
+                    healthy_organ_target = target[bs][None, ...]
 
-                synt_data, organ_tumor_mask,total_tumor_mask = synthesize_tumor(healthy_data, healthy_organ_target, args.organ_type, vqgan, early_sampler, text_description=text)
+                    synt_data, organ_tumor_mask = synthesize_tumor(healthy_data, healthy_organ_target, args.organ_type, vqgan, early_sampler, text_description=text)
 
-                data[bs, ...] = synt_data[0]
-                target[bs, ...] = organ_tumor_mask[0]
+                    data[bs, ...] = synt_data[0]
+                    target[bs, ...] = organ_tumor_mask[0]
 
         data = data.detach()
         target = target.detach()
@@ -364,30 +365,17 @@ def val_epoch(model, loader, val_shape_dict, epoch, loss_func, args, model_infer
                 else:
                     logits = model(data)
                     
-            # if logits.shape != target.shape:
-            #     # Resize logits to match the shape of the target
-            #     logits = interpolate(logits, size=target.shape[-3:], mode='trilinear', align_corners=False)
             if logits.shape != target.shape:
-                # Move logits and target to CPU for interpolation
                 logits = logits.cpu()
                 target = target.cpu()
                 
-                # Resize logits to match the shape of the target on CPU
                 logits = F.interpolate(logits, size=target.shape[-3:], mode='trilinear', align_corners=False)
                 
-                # If needed, move logits back to the original device (e.g., GPU) after resizing
                 logits = logits.to(target.device)
 
             loss = loss_func(logits, target)
-            # tumor_logits = logits.detach()
-     
-            # tumor_logits_detached = tumor_logits.detach()
-            # tumor_loss = loss_func(torch.stack([tumor_logits_detached[:,0], tumor_logits_detached[:,2]], dim=1), target == 2)
-            tumor_logits_detached = logits.detach()
-            tumor_logits_selected = torch.stack([tumor_logits_detached[:,0], tumor_logits_detached[:,2]], dim=1)
-            tumor_target = (target == 2).long()
-
-            tumor_loss = loss_func(tumor_logits_selected, tumor_target)
+            tumor_logits= logits.detach()
+            tumor_loss = loss_func(torch.stack([tumor_logits[:,0],tumor_logits[:,2]], dim=1), target==2)
             logits = torch.softmax(logits, 1).cpu().numpy()
             logits = np.argmax(logits, axis = 1).astype(np.uint8)
             target = target.cpu().numpy()[:,0,:,:,:]

@@ -222,15 +222,18 @@ class LoadImage_train(MapTransform):
         d['text'] = d.get('text', '')  
         
 
-        if (not 'kidney_label' in data_name) and self.organ_type == 'kidney':
-            d = self.reader1.__call__(d)
-            d['label'][d['label']==3] = 1
-        elif ('kidney_label' in data_name) and self.organ_type == 'kidney':
-            d = self.reader1.__call__(d)
-            d['label'][d['label']>0] = 1
+        d = self.reader(d)
+        if isinstance(d['label'], list):
+            combined_label = np.zeros_like(d['label'][0], dtype=np.int16)
+            for lbl in d['label']:
+                combined_label = np.logical_or(combined_label, lbl > 0)
             
-        else :
-            d = self.reader1.__call__(d)
+            d['label'] = combined_label.astype(np.int16)
+        else:
+            d['label'] = d['label'].astype(np.int16)
+
+        if self.organ_type == 'kidney':
+            d['label'][d['label'] > 0] = 1
 
         return d
     
@@ -431,13 +434,22 @@ def main_worker(gpu, args):
         name = tokens[1].split('.')[0]
 
         if len(tokens) > 1:
-            ct_path = tokens[0]
-            organ_label_path = tokens[1]
-            text = ' '.join(tokens[2:])
-            train_img.append(os.path.join(data_root, ct_path))
-            train_lbl.append(os.path.join(data_root, organ_label_path))
-            train_name.append(name)
-            train_text.append(text)
+            if 'kidney' in tokens[1]:
+                ct_path =  tokens[0]
+                organ_label_path = [healthy_data_root + lbl for lbl in tokens[1:]] 
+                text = ''.join(tokens[2:])
+                train_img.append(os.path.join(healthy_data_root , ct_path))
+                train_lbl.append(os.path.join(healthy_data_root , organ_label_path))
+                train_name.append(name)
+                train_text.append(text)
+            else:
+                ct_path =  tokens[0]
+                organ_label_path = tokens[1]
+                text = ''.join(tokens[2:])
+                train_img.append(os.path.join(healthy_data_root , ct_path))
+                train_lbl.append(os.path.join(healthy_data_root , organ_label_path))
+                train_name.append(name)
+                train_text.append(text)
         else:
             # Unhealthy data without text
             ct_path = tokens[0]

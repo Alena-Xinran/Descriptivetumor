@@ -436,8 +436,8 @@ def main_worker(gpu, args):
         if len(tokens) > 1:
             if 'kidney' in tokens[1]:
                 ct_path =  tokens[0]
-                organ_label_path = [healthy_data_root + lbl for lbl in tokens[1:]] 
-                text = ''.join(tokens[2:])
+                organ_label_path = [healthy_data_root + lbl for lbl in tokens[1:3]] 
+                text = ''.join(tokens[3:])
                 train_img.append(os.path.join(healthy_data_root , ct_path))
                 train_lbl.append(os.path.join(healthy_data_root , organ_label_path))
                 train_name.append(name)

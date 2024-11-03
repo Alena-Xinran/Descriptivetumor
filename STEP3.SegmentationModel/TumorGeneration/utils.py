@@ -242,34 +242,11 @@ def synt_model_prepare(device, vqgan_ckpt='TumorGeneration/model_weight/Autoenco
 import torch.nn.functional as F
 import numpy as np
 
-def generate_weight_based_on_text(text_description):
-    keywords_weights = {
-        "cyst": 0.9,
-        "hypoattenuating": 0.25,
-        "hypodensity": 0.6,
-        "hyperattenuating": 0.8,
-        "heterogeneous enhancement": 0.7,
-        "arterial enhancement": 0.9,
-        "washout": 0.6,
-        "cirrhosis": 0.7,
-        "metastases": 0.9,
-        "ill-defined": 0.2,
-        "well-defined": 0.8
-    }
 
-    weight = 0.1  # 默认权重
-    for description in text_description:
-        description = description.lower()
-        for keyword, keyword_weight in keywords_weights.items():
-            if keyword in description:
-                weight = min(weight, keyword_weight)
-
-    return np.clip(weight, 0, 1)
 
 def synthesize_tumor(ct_volume, organ_mask, organ_type, vqgan, tester, text_description=None, ddim_ts=50):
     device = ct_volume.device
 
-    weight = generate_weight_based_on_text(text_description)
 
     tumor_types = ['tiny', 'small','medium','large']
     tumor_probs = np.array([0.25, 0.25,0.25,0.25])
@@ -311,7 +288,7 @@ def synthesize_tumor(ct_volume, organ_mask, organ_type, vqgan, tester, text_desc
             sample_ = torch.nn.functional.interpolate(sample_, size=volume_.shape[2:], mode='trilinear', align_corners=False)
 
         mask_01_blur = torch.from_numpy(mask_01_np_blur).to(device=device)
-        final_volume_ = volume_ * (1 - mask_01_blur) * weight + sample_ * mask_01_blur * weight
+        final_volume_ = volume_ * (1 - mask_01_blur) + sample_ * mask_01_blur
         final_volume_ = torch.clamp(final_volume_, min=-100, max=200)
 
         final_volume_ = final_volume_.permute(0, 1, -2, -1, -3)

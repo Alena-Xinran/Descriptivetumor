@@ -388,7 +388,7 @@ def main_worker(gpu, args):
         elements = line.strip().split()
         name = elements[0].split('/')[-2] 
 
-        if 'kidney_label' in name or 'liver_label' in name or 'pancreas_label' in name:
+        if 'segmentations' in name:
             train_img_real.append(healthy_data_root + line.strip().split()[0])
             train_lbl_real.append(healthy_data_root + line.strip().split()[1])
             train_name_real.append(name)

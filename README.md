@@ -1,14 +1,21 @@
 # Baseline 1
 ## Step 1: Download Datasets for Descriptivetumor Baseline
-```bash
-git clone https://github.com/Alena-Xinran/Descriptivetumor.git
-
-cd Descriptivetumor/baseline1/
-```
+download unhealthy data
 ```bash
 wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/10_Decathlon/Task03_Liver.tar.gz?download=true # Task03_Liver.tar.gz (28.7 GB)
 wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/10_Decathlon/Task07_Pancreas.tar.gz?download=true # Task07_Pancreas.tar.gz (28.7 GB)
 wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/05_KiTS.tar.gz # KiTS.tar.gz (28 GB)
+```
+download healthy data
+```bash
+huggingface-cli download AbdomenAtlas/_AbdomenAtlas1.1Mini --token paste_your_token_here --repo-type dataset --local-dir .
+bash unzip.sh
+bash delete.sh
+```
+
+```bash
+git clone https://github.com/Alena-Xinran/Descriptivetumor.git
+cd Descriptivetumor/baseline1/
 ```
 ## Step 2: Prepare Model Weights for Baseline 1
 ```bash

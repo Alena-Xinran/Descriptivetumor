@@ -1,3 +1,4 @@
+## Baseline 1
 # Step 1: Download Datasets for Descriptivetumor Baseline
 ```bash
 git clone https://github.com/Alena-Xinran/Descriptivetumor.git
@@ -12,13 +13,78 @@ wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/05_KiTS.t
 # Step 2: Prepare Model Weights for Tumor Generation
 ```bash
 cd TumorGeneration/model_weight/
-
 wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor/liver.pt?download=true
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor/pancreas.pt?download=true
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor/kidney.pt?download=true
 ```
-Add the following files from Google Drive to TumorGeneration/model_weight/
-https://drive.google.com/drive/folders/1bpZMvAj9Wj8WSPnV9EJAs9gJYSE1mad6
 
 # Step 3: Modify Paths in hg.sh File in Baseline1
+Set healthy_datapath to the directory containing AbdomenAtlas1.1Mini
+```bash
+healthy_datapath=/ccvl/net/ccvl15/zzhou82/data/AbdomenAtlas/image_mask/AbdomenAtlas1.1Mini/AbdomenAtlas1.1Mini/
+```
+Set datapath to the root directory where Task03_Liver, Task07_Pancreas, and KiTS.tar.gz are downloaded
+```bash
+datapath=Descriptivetumor/baseline1/
+```
+
+## Baseline 2
+
+# Step 1: Prepare Model Weights for Tumor Generation
+```bash
+cd Descriptivetumor/STEP3.SegmentationModel/
+cd TumorGeneration/model_weight/
+wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor/liver.pt?download=true
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor/pancreas.pt?download=true
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor/kidney.pt?download=true
+```
+
+# Step 2: Modify Paths in hg.sh File in Baseline2
+Set healthy_datapath to the directory containing AbdomenAtlas1.1Mini
+```bash
+healthy_datapath=/ccvl/net/ccvl15/zzhou82/data/AbdomenAtlas/image_mask/AbdomenAtlas1.1Mini/AbdomenAtlas1.1Mini/
+```
+Set datapath to the root directory where Task03_Liver, Task07_Pancreas, and KiTS.tar.gz are downloaded
+```bash
+datapath=Descriptivetumor/baseline1/
+```
+
+## Baseline 3
+
+# Step 1: Prepare Model Weights for Tumor Generation
+```bash
+cd Descriptivetumor/STEP3.SegmentationModel/
+cd TumorGeneration/model_weight/
+wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/liver.pt?download=true
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/pancreas.pt?download=true
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/kidney.pt?download=true
+```
+
+# Step 2: Modify Paths in hg.sh File in Baseline2
+Set healthy_datapath to the directory containing AbdomenAtlas1.1Mini
+```bash
+healthy_datapath=/ccvl/net/ccvl15/zzhou82/data/AbdomenAtlas/image_mask/AbdomenAtlas1.1Mini/AbdomenAtlas1.1Mini/
+```
+Set datapath to the root directory where Task03_Liver, Task07_Pancreas, and KiTS.tar.gz are downloaded
+```bash
+datapath=Descriptivetumor/baseline1/
+```
+## Baseline 4
+
+# Step 1: Prepare Model Weights for Tumor Generation
+```bash
+cd Descriptivetumor/STEP3.SegmentationModel/
+cd TumorGeneration/model_weight/
+wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor3/liver.pt?download=true
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor3/pancreas.pt?download=true
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor3/kidney.pt?download=true
+```
+
+# Step 2: Modify Paths in hg.sh File in Baseline2
 Set healthy_datapath to the directory containing AbdomenAtlas1.1Mini
 ```bash
 healthy_datapath=/ccvl/net/ccvl15/zzhou82/data/AbdomenAtlas/image_mask/AbdomenAtlas1.1Mini/AbdomenAtlas1.1Mini/

@@ -13,7 +13,7 @@ import torch.utils.data.distributed
 from monai.transforms.transform import MapTransform
 import sys
 from os import environ
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3"
+os.environ["CUDA_VISIBLE_DEVICES"] = "4,5,6,7"
 from monai.inferers import sliding_window_inference
 # from monai.data import DataLoader, Dataset
 from monai.losses import DiceLoss, DiceCELoss
@@ -139,7 +139,7 @@ class RandCropByPosNegLabeld_select(transforms.RandCropByPosNegLabeld):
         d = dict(data)
         data_name = d['name']
         d.pop('name')
-        if 'segmentations' in data_name:
+        if 'BDMAP' in data_name:
             flag=0
             while 1:
                 flag+=1
@@ -388,7 +388,8 @@ def main_worker(gpu, args):
         elements = line.strip().split()
         name = elements[0].split('/')[-2] 
 
-        if 'segmentations' in name:
+        if 'BDMAP' in name:
+            print(elements[1])
             
             if 'kidney' in elements[1]:
                 image_path = healthy_data_root + elements[0]

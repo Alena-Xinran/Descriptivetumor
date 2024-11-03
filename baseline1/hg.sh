@@ -22,6 +22,8 @@ batch_size=4
 val_every=50
 workers=1
 organ=liver
+# organ=pancreas
+# organ=kidney
 fold=0
 
 # U-Net

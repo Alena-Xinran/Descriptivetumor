@@ -388,19 +388,21 @@ def main_worker(gpu, args):
         elements = line.strip().split()
         name = elements[0].split('/')[-2] 
 
-        if 'segmentations' in name and 'kidney' not in elements[1]:
-            train_img_real.append(healthy_data_root + line.strip().split()[0])
-            train_lbl_real.append(healthy_data_root + line.strip().split()[1])
-            train_name_real.append(name)
-        if 'kidney' in elements[1]:
-            image_path = healthy_data_root + elements[0]
-            label_paths = [healthy_data_root + lbl for lbl in elements[1:]] 
-            train_img_real.append(image_path)
-            train_lbl_real.append(label_paths)
-            train_name_real.append(name)
+        if 'segmentations' in name:
+            
+            if 'kidney' in elements[1]:
+                image_path = healthy_data_root + elements[0]
+                label_paths = [healthy_data_root + lbl for lbl in elements[1:]] 
+                train_img_real.append(image_path)
+                train_lbl_real.append(label_paths)
+                train_name_real.append(name)
+            else:
+                train_img_real.append(healthy_data_root + line.strip().split()[0])
+                train_lbl_real.append(healthy_data_root + line.strip().split()[1])
+                train_name_real.append(name)
         else:
-            image_path = healthy_data_root + elements[0]
-            label_path = healthy_data_root + elements[1]
+            image_path = data_root + elements[0]
+            label_path = data_root + elements[1]
             train_img_real.append(image_path)
             train_lbl_real.append(label_path)
             train_name_real.append(name)

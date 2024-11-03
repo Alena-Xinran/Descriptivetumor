@@ -139,7 +139,7 @@ class RandCropByPosNegLabeld_select(transforms.RandCropByPosNegLabeld):
         d = dict(data)
         data_name = d['name']
         d.pop('name')
-        if 'kidney_label' in data_name or 'liver_label' in data_name or 'pancreas_label' in data_name:
+        if 'segmentations' in data_name:
             flag=0
             while 1:
                 flag+=1
@@ -393,12 +393,12 @@ def main_worker(gpu, args):
             train_lbl_real.append(healthy_data_root + line.strip().split()[1])
             train_name_real.append(name)
 
-        if 'kidney' in elements[1]:
-            image_path = healthy_data_root + elements[0]
-            label_paths = [healthy_data_root + lbl for lbl in elements[1:]] 
-            train_img_real.append(image_path)
-            train_lbl_real.append(label_paths)
-            train_name_real.append(name)
+            if 'kidney' in elements[1]:
+                image_path = healthy_data_root + elements[0]
+                label_paths = [healthy_data_root + lbl for lbl in elements[1:]] 
+                train_img_real.append(image_path)
+                train_lbl_real.append(label_paths)
+                train_name_real.append(name)
         else:
             image_path = healthy_data_root + elements[0]
             label_path = healthy_data_root + elements[1]

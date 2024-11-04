@@ -38,7 +38,11 @@ Set datapath to the root directory where Task03_Liver, Task07_Pancreas, and KiTS
 datapath=....
 ```
 Modify the organ parameter to be liver, pancreas, and kidney, respectively.
-
+```bash
+organ=kidney
+#organ=liver
+#organ=pancreas
+```
 ## Step 3: Result
 3 organ (liver, pancreas, and kidney)  = 3 checkpoints.
 

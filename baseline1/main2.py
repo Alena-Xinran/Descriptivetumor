@@ -432,7 +432,7 @@ def main_worker(gpu, args):
         name = line.strip().split()[1].split('.')[0]
         val_img.append(data_root + line.strip().split()[0])
         val_lbl.append(data_root + line.strip().split()[1])
-        val_pseudo_lbl.append('organ_pseudo_swin_new/{}/'.format(organ_type) + os.path.basename(line.strip().split()[1]))
+        val_pseudo_lbl.append('../organ_pseudo_swin_new/{}/{}/'.format(organ_type) + os.path.basename(line.strip().split()[1]))
         val_name.append(name)
     data_dicts_val = [{'image': image, 'label': label, 'organ_pseudo': organ_pseudo, 'name': name}
                 for image, label, organ_pseudo, name in zip(val_img, val_lbl, val_pseudo_lbl, val_name)]

@@ -34,9 +34,9 @@ cd baseline1/
 ```bash
 cd TumorGeneration/model_weight/
 wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt
-wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor/liver.pt?download=true
-wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor/pancreas.pt?download=true
-wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor/kidney.pt?download=true
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor/liver.pt
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor/pancreas.pt
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor/kidney.pt
 ```
 
 ## Step 2: Modify Paths in baseline1/hg.sh File in Baseline 0
@@ -69,23 +69,23 @@ wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/A
 
 ```bash
 cd TumorGeneration/model_weight1/
-wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor/liver.pt?download=true
-wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor/pancreas.pt?download=true
-wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor/kidney.pt?download=true
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor/liver.pt
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor/pancreas.pt
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor/kidney.pt
 ```
 
 ```bash
 cd TumorGeneration/model_weight2/
-wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/liver.pt?download=true
-wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/pancreas.pt?download=true
-wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/kidney.pt?download=true
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/liver.pt
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/pancreas.pt
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/kidney.pt
 ```
 
 ```bash
 cd TumorGeneration/model_weight3/
-wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor3/liver.pt?download=true
-wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor3/pancreas.pt?download=true
-wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor3/kidney.pt?download=true
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor3/liver.pt
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor3/pancreas.pt
+wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor3/kidney.pt
 ```
 
 ## Step 2: Modify Paths in STEP3.SegmentationModel/hg.sh File in Baseline 1-3

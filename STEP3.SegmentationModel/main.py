@@ -122,6 +122,8 @@ parser.add_argument('--data_root', default=None, type=str)
 parser.add_argument('--healthy_data_root', default=None, type=str)
 parser.add_argument('--datafold_dir', default=None, type=str)
 parser.add_argument('--cache_num', default=200, type=int)
+parser.add_argument("--version", type=int, choices=[1, 2, 3], required=True, help="Specify the version of the model (1, 2, or 3).")
+
 
 parser.add_argument('--use_pretrained', action='store_true')
 

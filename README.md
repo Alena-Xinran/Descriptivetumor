@@ -44,6 +44,10 @@ Modify the organ parameter to be liver, pancreas, and kidney, respectively.
 cd Descriptivetumor/STEP3.SegmentationModel/
 cd TumorGeneration/model_weight/
 wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt
+```
+
+```bash
+cd TumorGeneration/model_weight/
 wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor/liver.pt?download=true
 wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor/pancreas.pt?download=true
 wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor/kidney.pt?download=true

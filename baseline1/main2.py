@@ -167,26 +167,34 @@ class RandCropByPosNegLabeld_select(transforms.RandCropByPosNegLabeld):
         return d_crop
 
 class LoadImage_train(MapTransform):
-    def __init__(self, organ_type):
-        super().__init__(keys=["image", "label"])
-        self.reader = transforms.LoadImaged(keys=["image", "label"])
+    def __init__(self,organ_type):
+        self.reader1 = transforms.LoadImaged(keys=["image", "label"])
         self.organ_type = organ_type
 
     def __call__(self, data):
         d = dict(data)
         data_name = d['name']
-        d = self.reader(d)
-        if isinstance(d['label'], list):
-            combined_label = np.zeros_like(d['label'][0], dtype=np.int16)
-            for lbl in d['label']:
-                combined_label = np.logical_or(combined_label, lbl > 0)
+        d['text'] = d.get('text', '')
+        if (not 'BDMAP' in data_name) and self.organ_type == 'kidney':
+            d = self.reader1.__call__(d)
+            d['label'][d['label']==3] = 1
+        elif ('BDMAP' in data_name) and self.organ_type == 'kidney':
+            d = self.reader1.__call__(d)
+            left_label, right_label = d['label']
             
-            d['label'] = combined_label.astype(np.int16)
-        else:
-            d['label'] = d['label'].astype(np.int16)
+            if left_label.ndim == 4:
+                left_label = left_label[0]
+            if right_label.ndim == 4:
+                right_label = right_label[0]
 
-        if self.organ_type == 'kidney':
-            d['label'][d['label'] > 0] = 1
+            combined_label = left_label.astype(np.int16) + right_label.astype(np.int16)
+            
+            combined_label[combined_label > 0] = 1
+            d['label'] = combined_label
+
+            
+        else :
+            d = self.reader1.__call__(d)
 
         return d
 
@@ -389,18 +397,19 @@ def main_worker(gpu, args):
         name = elements[0].split('/')[-2] 
 
         if 'BDMAP' in name:
-            print(elements[1])
-            
-            if 'kidney' in elements[1]:
-                image_path = healthy_data_root + elements[0]
-                label_paths = [healthy_data_root + lbl for lbl in elements[1:]] 
-                train_img_real.append(image_path)
-                train_lbl_real.append(label_paths)
-                train_name_real.append(name)
+            ct_path = elements[0]
+            if 'kidney' in elements[1]: 
+                organ_label_path = [elements[1], elements[2]]  
+                text = ' '.join(elements[3:])  
+                train_img.append(os.path.join(healthy_data_root, ct_path))
+                train_lbl.append([os.path.join(healthy_data_root, lbl) for lbl in organ_label_path])
+                train_name.append(name)
             else:
-                train_img_real.append(healthy_data_root + line.strip().split()[0])
-                train_lbl_real.append(healthy_data_root + line.strip().split()[1])
-                train_name_real.append(name)
+                organ_label_path = elements[1]
+                text = ' '.join(elements[2:])
+                train_img.append(os.path.join(healthy_data_root, ct_path))
+                train_lbl.append(os.path.join(healthy_data_root, organ_label_path))
+                train_name.append(name)
         else:
             image_path = data_root + elements[0]
             label_path = data_root + elements[1]

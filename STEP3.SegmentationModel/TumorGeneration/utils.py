@@ -207,7 +207,7 @@ def get_fixed_geo(mask_scan, tumor_type, organ_type):
 
 def synt_model_prepare(device,version, fold, organ):
     vqgan_ckpt = f'TumorGeneration/model_weight/AutoencoderModel.ckpt'
-    diffusion_ckpt = f'TumorGeneration/model_weight{version}/'
+    diffusion_ckpt = f'TumorGeneration/model_weight{version}/{organ}.pt'
 
     with initialize(config_path="diffusion_config/"):
         cfg = compose(config_name="ddpm.yaml")
@@ -237,7 +237,7 @@ def synt_model_prepare(device,version, fold, organ):
     ).to(device)
     
     early_tester = Tester(early_diffusion)
-    early_tester.load(diffusion_ckpt.format(organ), map_location=device)
+    early_tester.load(diffusion_ckpt, map_location=device)
 
     return vqgan, early_tester
 

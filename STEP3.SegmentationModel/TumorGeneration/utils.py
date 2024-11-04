@@ -296,4 +296,4 @@ def synthesize_tumor(ct_volume, organ_mask, organ_type, vqgan, tester, text_desc
         final_volume_ = final_volume_.permute(0, 1, -2, -1, -3)
         organ_tumor_mask = organ_mask + total_tumor_mask
 
-    return final_volume_, organ_tumor_mask, total_tumor_mask
+    return final_volume_, organ_tumor_mask

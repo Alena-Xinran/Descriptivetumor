@@ -249,8 +249,6 @@ def synt_model_prepare(device, vqgan_ckpt='TumorGeneration/model_weight/Autoenco
             device=device
             ).to(device)
     
-    early_tester = Tester(early_diffusion)
-    early_tester.load(diffusion_ckpt+'{}_early.pt'.format(organ), map_location=device)
 
     noearly_checkpoint = torch.load(diffusion_ckpt+'{}.pt'.format(organ), map_location=device)
     noearly_diffusion.load_state_dict(noearly_checkpoint['ema'])

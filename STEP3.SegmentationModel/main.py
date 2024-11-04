@@ -16,7 +16,7 @@ import sys
 from os import environ
 import os
 import sys
-os.environ["CUDA_VISIBLE_DEVICES"] = "7"
+os.environ["CUDA_VISIBLE_DEVICES"] = "6"
 from monai.inferers import sliding_window_inference
 # from monai.data import DataLoader, Dataset
 from monai.losses import DiceLoss, DiceCELoss
@@ -211,8 +211,6 @@ class RandCropByPosNegLabeld_select(transforms.RandCropByPosNegLabeld):
 
         d_crop[0]['name'] = data_name
         return d_crop
-
-
 class LoadImage_train(MapTransform):
     def __init__(self,organ_type):
         self.reader1 = transforms.LoadImaged(keys=["image", "label"])
@@ -221,24 +219,31 @@ class LoadImage_train(MapTransform):
     def __call__(self, data):
         d = dict(data)
         data_name = d['name']
-        d['text'] = d.get('text', '')  
-        
-
-        d = self.reader(d)
-        if isinstance(d['label'], list):
-            combined_label = np.zeros_like(d['label'][0], dtype=np.int16)
-            for lbl in d['label']:
-                combined_label = np.logical_or(combined_label, lbl > 0)
+        d['text'] = d.get('text', '')
+        if (not 'BDMAP' in data_name) and self.organ_type == 'kidney':
+            d = self.reader1.__call__(d)
+            d['label'][d['label']==3] = 1
+        elif ('BDMAP' in data_name) and self.organ_type == 'kidney':
+            d = self.reader1.__call__(d)
+            left_label, right_label = d['label']
             
-            d['label'] = combined_label.astype(np.int16)
-        else:
-            d['label'] = d['label'].astype(np.int16)
+            if left_label.ndim == 4:
+                left_label = left_label[0]
+            if right_label.ndim == 4:
+                right_label = right_label[0]
 
-        if self.organ_type == 'kidney':
-            d['label'][d['label'] > 0] = 1
+            combined_label = left_label.astype(np.int16) + right_label.astype(np.int16)
+            
+            combined_label[combined_label > 0] = 1
+            d['label'] = combined_label
+
+            
+        else :
+            d = self.reader1.__call__(d)
 
         return d
     
+
 class LoadImage_val(transforms.LoadImaged):
     def __init__(self, keys, *args,**kwargs, ):
         super().__init__(keys)
@@ -431,29 +436,26 @@ def main_worker(gpu, args):
     train_txt = os.path.join(datafold_dir, 'real_{}_train_{}.txt'.format(tumor_type, fold))
 
     for line in open(train_txt):
-
         tokens = line.strip().split()
         name = tokens[1].split('.')[0]
 
-        if len(tokens) > 1:
-            if 'kidney' in tokens[1]:
-                ct_path =  tokens[0]
-                organ_label_path = [healthy_data_root + lbl for lbl in tokens[1:3]] 
-                text = ''.join(tokens[3:])
-                train_img.append(os.path.join(healthy_data_root , ct_path))
-                train_lbl.append(os.path.join(healthy_data_root , organ_label_path))
+        if 'BDMAP' in name:
+            ct_path = tokens[0]
+            if 'kidney' in tokens[1]: 
+                organ_label_path = [tokens[1], tokens[2]]  
+                text = ' '.join(tokens[3:])  
+                train_img.append(os.path.join(healthy_data_root, ct_path))
+                train_lbl.append([os.path.join(healthy_data_root, lbl) for lbl in organ_label_path])
                 train_name.append(name)
                 train_text.append(text)
             else:
-                ct_path =  tokens[0]
                 organ_label_path = tokens[1]
-                text = ''.join(tokens[2:])
-                train_img.append(os.path.join(healthy_data_root , ct_path))
-                train_lbl.append(os.path.join(healthy_data_root , organ_label_path))
+                text = ' '.join(tokens[2:])
+                train_img.append(os.path.join(healthy_data_root, ct_path))
+                train_lbl.append(os.path.join(healthy_data_root, organ_label_path))
                 train_name.append(name)
                 train_text.append(text)
         else:
-            # Unhealthy data without text
             ct_path = tokens[0]
             organ_tumor_label_path = tokens[1]
             text = ''

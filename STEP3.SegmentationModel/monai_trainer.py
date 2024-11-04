@@ -455,7 +455,8 @@ def val_epoch(model, loader, val_shape_dict, epoch, loss_func, args, model_infer
 
 
 def save_checkpoint(model, epoch, args, filename='model.pt', best_acc=0, optimizer=None, scheduler=None):
-
+    if args.logdir and not os.path.exists(args.logdir):
+        os.makedirs(args.logdir, exist_ok=True)
     state_dict = model.state_dict() if not args.distributed else model.module.state_dict()
 
     save_dict = {
@@ -544,7 +545,7 @@ def run_training(model,
 
 
                 # Save best model based on validation accuracy
-                if val_acc[1] > val_acc_max:
+                if val_acc[1] >= val_acc_max:
                     print(f'New best accuracy: {val_acc_max:.6f} --> {val_acc[1]:.6f}')
                     val_acc_max = val_acc[1]
                     if args.rank == 0 and args.logdir is not None and args.save_checkpoint:

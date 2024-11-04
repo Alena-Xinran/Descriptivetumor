@@ -16,9 +16,9 @@ git clone https://github.com/Alena-Xinran/Descriptivetumor.git
 cd Descriptivetumor/
 ```
 # Baseline 0-baseline1
-'''bash
+```bash
 cd baseline1/
-'''
+```
 ## Step 1: Prepare Model Weights for Baseline 0
 ```bash
 cd TumorGeneration/model_weight/
@@ -43,9 +43,9 @@ Modify the organ parameter to be liver, pancreas, and kidney, respectively.
 3 organ (liver, pancreas, and kidney)  = 3 checkpoints.
 
 # Baseline 1-3-STEP3.SegmentationModel
-'''bash
+```bash
 cd Descriptivetumor/STEP3.SegmentationModel/
-'''
+```
 ## Step 1: Prepare Model Weights for Baseline 1-3
 ```bash
 cd TumorGeneration/model_weight/

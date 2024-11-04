@@ -44,7 +44,7 @@ Set healthy_datapath to the directory containing AbdomenAtlas1.1Mini
 ```bash
 healthy_datapath=/ccvl/net/ccvl15/zzhou82/data/AbdomenAtlas/image_mask/AbdomenAtlas1.1Mini/AbdomenAtlas1.1Mini/
 ```
-Set datapath to the root directory where Task03_Liver, Task07_Pancreas, and KiTS.tar.gz are downloaded
+Set datapath to the root directory where Task03_Liver, Task07_Pancreas, and KiTS are downloaded
 ```bash
 datapath=....
 ```
@@ -93,7 +93,7 @@ Set healthy_datapath to the directory containing AbdomenAtlas1.1Mini
 ```bash
 healthy_datapath=/ccvl/net/ccvl15/zzhou82/data/AbdomenAtlas/image_mask/AbdomenAtlas1.1Mini/AbdomenAtlas1.1Mini/
 ```
-Set datapath to the root directory where Task03_Liver, Task07_Pancreas, and KiTS.tar.gz are downloaded
+Set datapath to the root directory where Task03_Liver, Task07_Pancreas, and KiTS are downloaded
 ```bash
 datapath=....
 ```

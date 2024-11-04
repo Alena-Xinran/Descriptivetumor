@@ -73,4 +73,5 @@ Set datapath to the root directory where Task03_Liver, Task07_Pancreas, and KiTS
 datapath=Descriptivetumor/baseline1/
 ```
 Modify the organ parameter to be liver, pancreas, and kidney, respectively.
+
 Modify the version parameter to be 1, 2, and 3, respectively.

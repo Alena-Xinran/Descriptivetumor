@@ -174,7 +174,6 @@ class LoadImage_train(MapTransform):
     def __call__(self, data):
         d = dict(data)
         data_name = d['name']
-        d['text'] = d.get('text', '')
         if (not 'BDMAP' in data_name) and self.organ_type == 'kidney':
             d = self.reader1.__call__(d)
             d['label'][d['label']==3] = 1

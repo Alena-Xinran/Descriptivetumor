@@ -386,9 +386,9 @@ def main_worker(gpu, args):
     train_img_real=[]
     train_lbl_real=[]
     train_name_real=[]
-    train_img_healthy=[]
-    train_lbl_healthy=[]
-    train_name_healthy=[]
+    train_img=[]
+    train_lbl=[]
+    train_name=[]
 
     train_txt = os.path.join(datafold_dir, 'real_{}_train_{}.txt'.format(tumor_type, fold))
 
@@ -400,13 +400,11 @@ def main_worker(gpu, args):
             ct_path = elements[0]
             if 'kidney' in elements[1]: 
                 organ_label_path = [elements[1], elements[2]]  
-                text = ' '.join(elements[3:])  
                 train_img.append(os.path.join(healthy_data_root, ct_path))
                 train_lbl.append([os.path.join(healthy_data_root, lbl) for lbl in organ_label_path])
                 train_name.append(name)
             else:
                 organ_label_path = elements[1]
-                text = ' '.join(elements[2:])
                 train_img.append(os.path.join(healthy_data_root, ct_path))
                 train_lbl.append(os.path.join(healthy_data_root, organ_label_path))
                 train_name.append(name)
@@ -417,9 +415,9 @@ def main_worker(gpu, args):
             train_lbl_real.append(label_path)
             train_name_real.append(name)
 
-    train_img = train_img_real + train_img_healthy
-    train_lbl = train_lbl_real + train_lbl_healthy
-    train_name = train_name_real + train_name_healthy
+    train_img = train_img_real + train_img
+    train_lbl = train_lbl_real + train_lbl
+    train_name = train_name_real + train_name
     data_dicts_train = [{'image': image, 'label': label, 'name': name}
                         for image, label, name in zip(train_img, train_lbl, train_name)]
     print('train len {}'.format(len(data_dicts_train)))

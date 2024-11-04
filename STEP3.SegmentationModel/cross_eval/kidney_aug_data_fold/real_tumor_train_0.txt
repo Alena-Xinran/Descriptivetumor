@@ -1,0 +1,1 @@
+BDMAP_00000020/ct.nii.gz BDMAP_00000020/segmentations/kidney_left.nii.gz BDMAP_00000020/segmentations/kidney_right.nii.gz There is a notable washout with significant detail.

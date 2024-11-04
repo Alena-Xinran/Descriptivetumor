@@ -1,14 +1,18 @@
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
-healthy_datapath=/ccvl/net/ccvl15/xinran/
+healthy_datapath=/ccvl/net/ccvl15/zzhou82/data/AbdomenAtlas/image_mask/AbdomenAtlas1.1Mini/AbdomenAtlas1.1Mini/
 datapath=/ccvl/net/ccvl15/xinran/
 cache_rate=1.0
 batch_size=4
 val_every=50
 workers=0
-organ=liver
+organ=kidney
+# organ=liver
+# organ=pancreas
 fold=0
 version=1
+# version=2
+# version=3
 
 # U-Net
 backbone=unet

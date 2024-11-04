@@ -28,7 +28,7 @@ wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor
 wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor/kidney.pt?download=true
 ```
 
-## Step 2: Modify Paths in hg.sh File in Baseline 0
+## Step 2: Modify Paths in baseline1/hg.sh File in Baseline 0
 Set healthy_datapath to the directory containing AbdomenAtlas1.1Mini
 ```bash
 healthy_datapath=/ccvl/net/ccvl15/zzhou82/data/AbdomenAtlas/image_mask/AbdomenAtlas1.1Mini/AbdomenAtlas1.1Mini/

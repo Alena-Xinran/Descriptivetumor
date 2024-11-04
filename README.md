@@ -84,18 +84,18 @@ datapath=....
 ```
 
 Modify the organ parameter to be liver, pancreas, and kidney, respectively.
-'''bash
+```bash
 organ=kidney
-organ=liver
-organ=pancreas
-'''
+#organ=liver
+#organ=pancreas
+```
 
 Modify the version parameter to be 1, 2, and 3, respectively.
-'''bash
+```bash
 version=1
-version=2
-version=3
-'''
+#version=2
+#version=3
+```
 
 ## Step 3: Result
 3 organ (liver, pancreas, and kidney) * 3 version (1,2,3) = 9 checkpoints.

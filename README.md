@@ -82,18 +82,19 @@ Set datapath to the root directory where Task03_Liver, Task07_Pancreas, and KiTS
 ```bash
 datapath=....
 ```
+
 Modify the organ parameter to be liver, pancreas, and kidney, respectively.
 '''bash
 organ=kidney
-# organ=liver
-# organ=pancreas
+organ=liver
+organ=pancreas
 '''
 
 Modify the version parameter to be 1, 2, and 3, respectively.
 '''bash
 version=1
-# version=2
-# version=3
+version=2
+version=3
 '''
 
 ## Step 3: Result

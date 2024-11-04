@@ -208,11 +208,11 @@ def train_epoch(model, loader, optimizer, scaler, epoch, loss_func, args, tumor_
     start_time = time.time()
     run_loss = AverageMeter()
     if args.organ_type == 'liver':
-        sample_thresh = 0.5
+        sample_thresh = 0.4
     elif args.organ_type == 'pancreas':
-        sample_thresh = 0.5
+        sample_thresh = 0.4
     elif args.organ_type == 'kidney':
-        sample_thresh = 0.5
+        sample_thresh = 0.4
     # model prepare
     vqgan, sampler= synt_model_prepare(device = torch.device("cuda", args.rank), fold=args.fold, organ=args.organ_model)
 
@@ -226,13 +226,13 @@ def train_epoch(model, loader, optimizer, scaler, epoch, loss_func, args, tumor_
 
         for bs in range(data.shape[0]):
             data_name = data_names[bs]
-            
-            if random.random() > sample_thresh:
-                healthy_data = data[bs][None,...]
-                healthy_target = target[bs][None,...]
-                synt_data, synt_target = synthesize_tumor(healthy_data, healthy_target, args.organ_type, vqgan, sampler, ddim_ts=args.ddim_ts)    
-                data[bs,...] = synt_data[0]
-                target[bs,...] = synt_target[0]
+            if 'BDMAP' in data_name:
+                if random.random() > sample_thresh:
+                    healthy_data = data[bs][None,...]
+                    healthy_target = target[bs][None,...]
+                    synt_data, synt_target = synthesize_tumor(healthy_data, healthy_target, args.organ_type, vqgan, sampler, ddim_ts=args.ddim_ts)    
+                    data[bs,...] = synt_data[0]
+                    target[bs,...] = synt_target[0]
         data=data.detach()
         target=target.detach()
 

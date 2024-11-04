@@ -262,7 +262,7 @@ def train_epoch(model, loader, optimizer, scaler, epoch, loss_func, args, tumor_
         sample_thresh = 0.5
 
     # Model preparation
-    vqgan, early_sampler = synt_model_prepare(device=torch.device("cuda", args.rank), fold=args.fold, organ=args.organ_model)
+    vqgan, early_sampler = synt_model_prepare(device=torch.device("cuda", args.rank), version=args.version, fold=args.fold, organ=args.organ_model)
 
     for idx, batch_data in enumerate(loader):
         if isinstance(batch_data, list):

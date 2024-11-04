@@ -16,6 +16,11 @@ wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/10_Decath
 wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/10_Decathlon/Task07_Pancreas.tar.gz # Task07_Pancreas.tar.gz (28.7 GB)
 wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/05_KiTS.tar.gz # KiTS.tar.gz (28 GB)
 ```
+```bash
+tar -zxvf Task03_Liver.tar.gz
+tar -zxvf Task07_Pancreas.tar.gz
+tar -zxvf 05_KiTS.tar.gz
+```
 download healthy data
 ```bash
 huggingface-cli download AbdomenAtlas/_AbdomenAtlas1.1Mini --token paste_your_token_here --repo-type dataset --local-dir .

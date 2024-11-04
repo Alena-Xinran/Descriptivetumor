@@ -1,4 +1,15 @@
-# Download Datasets for Descriptivetumor Baseline
+# Download Datasets and environment for Descriptivetumor Baseline
+## STEP 1. Create a virtual environment 
+
+The environment is the same as [DiffTumor](https://github.com/MrGiovanni/DiffTumor)
+
+```bash
+conda create -n difftumor python=3.8
+source activate difftumor # or conda activate difftumor
+pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
+pip install -r requirements.txt
+```
+## STEP 2. Download Datasets
 download unhealthy data
 ```bash
 wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/10_Decathlon/Task03_Liver.tar.gz?download=true # Task03_Liver.tar.gz (28.7 GB)

@@ -255,11 +255,11 @@ def train_epoch(model, loader, optimizer, scaler, epoch, loss_func, args, tumor_
     run_loss = AverageMeter()
 
     if args.organ_type == 'liver':
-        sample_thresh = 0.5
+        sample_thresh = 0.4
     elif args.organ_type == 'pancreas':
-        sample_thresh = 0.5
+        sample_thresh = 0.4
     elif args.organ_type == 'kidney':
-        sample_thresh = 0.5
+        sample_thresh = 0.4
 
     # Model preparation
     vqgan, early_sampler = synt_model_prepare(device=torch.device("cuda", args.rank), version=args.version, fold=args.fold, organ=args.organ_model)

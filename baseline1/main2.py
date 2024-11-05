@@ -13,7 +13,7 @@ import torch.utils.data.distributed
 from monai.transforms.transform import MapTransform
 import sys
 from os import environ
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3,4,5,6,7"
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 from monai.inferers import sliding_window_inference
 # from monai.data import DataLoader, Dataset
 from monai.losses import DiceLoss, DiceCELoss
@@ -167,35 +167,51 @@ class RandCropByPosNegLabeld_select(transforms.RandCropByPosNegLabeld):
         return d_crop
 
 class LoadImage_train(MapTransform):
-    def __init__(self,organ_type):
-        self.reader1 = transforms.LoadImaged(keys=["image", "label"])
+    def __init__(self, organ_type):
+        self.reader_image_label = transforms.LoadImaged(keys=["image", "label"])
+        self.reader_label = transforms.LoadImaged(keys=["label"])
+        self.reader_image = transforms.LoadImaged(keys=["image"])
         self.organ_type = organ_type
 
     def __call__(self, data):
         d = dict(data)
         data_name = d['name']
-        if (not 'BDMAP' in data_name) and self.organ_type == 'kidney':
-            d = self.reader1.__call__(d)
-            d['label'][d['label']==3] = 1
-        elif ('BDMAP' in data_name) and self.organ_type == 'kidney':
-            d = self.reader1.__call__(d)
-            left_label, right_label = d['label']
-            
-            if left_label.ndim == 4:
-                left_label = left_label[0]
-            if right_label.ndim == 4:
-                right_label = right_label[0]
+        d['text'] = d.get('text', '')
 
-            combined_label = left_label.astype(np.int16) + right_label.astype(np.int16)
-            
-            combined_label[combined_label > 0] = 1
-            d['label'] = combined_label
+        if self.organ_type == 'kidney':
+            if 'BDMAP' not in data_name:
+                d = self.reader_image_label(d)
+                d['label'][d['label'] == 3] = 1
+            else:
+                d = self.reader_image(d)
 
-            
-        else :
-            d = self.reader1.__call__(d)
+                left_label_path, right_label_path = d['label']
+
+                d_left = self.reader_label({'label': left_label_path})
+                d_right = self.reader_label({'label': right_label_path})
+
+                left_label = d_left['label']
+                right_label = d_right['label']
+
+                if left_label.ndim == 4:
+                    left_label = left_label[0]
+                if right_label.ndim == 4:
+                    right_label = right_label[0]
+
+                combined_label = (left_label > 0) | (right_label > 0)
+                combined_label = combined_label.astype(np.int16)
+
+                d['label'] = combined_label
+                label_meta_dict = d_left.get('label_meta_dict', {}).copy()
+                if 'affine' in d_right.get('label_meta_dict', {}):
+                    label_meta_dict['affine'] = d_right['label_meta_dict']['affine']
+                d['label_meta_dict'] = label_meta_dict
+        else:
+            d = self.reader_image_label(d)
+
 
         return d
+
 
     
 class LoadImage_val(transforms.LoadImaged):
@@ -385,9 +401,9 @@ def main_worker(gpu, args):
     train_img_real=[]
     train_lbl_real=[]
     train_name_real=[]
-    train_img=[]
-    train_lbl=[]
-    train_name=[]
+    train_img_healthy=[]
+    train_lbl_healthy=[]
+    train_name_healthy=[]
 
     train_txt = os.path.join(datafold_dir, 'real_{}_train_{}.txt'.format(tumor_type, fold))
 
@@ -399,14 +415,15 @@ def main_worker(gpu, args):
             ct_path = elements[0]
             if 'kidney' in elements[1]: 
                 organ_label_path = [elements[1], elements[2]]  
-                train_img.append(os.path.join(healthy_data_root, ct_path))
-                train_lbl.append([os.path.join(healthy_data_root, lbl) for lbl in organ_label_path])
-                train_name.append(name)
+                train_img_healthy.append(os.path.join(healthy_data_root, ct_path))
+                train_lbl_healthy.append([os.path.join(healthy_data_root, lbl) for lbl in organ_label_path])
+                train_name_healthy.append(name)
             else:
                 organ_label_path = elements[1]
-                train_img.append(os.path.join(healthy_data_root, ct_path))
-                train_lbl.append(os.path.join(healthy_data_root, organ_label_path))
-                train_name.append(name)
+                print(organ_label_path)
+                train_img_healthy.append(os.path.join(healthy_data_root, ct_path))
+                train_lbl_healthy.append(os.path.join(healthy_data_root, organ_label_path))
+                train_name_healthy.append(name)
         else:
             image_path = data_root + elements[0]
             label_path = data_root + elements[1]
@@ -414,9 +431,9 @@ def main_worker(gpu, args):
             train_lbl_real.append(label_path)
             train_name_real.append(name)
 
-    train_img = train_img_real + train_img
-    train_lbl = train_lbl_real + train_lbl
-    train_name = train_name_real + train_name
+    train_img = train_img_real + train_img_healthy
+    train_lbl = train_lbl_real + train_lbl_healthy
+    train_name = train_name_real + train_name_healthy
     data_dicts_train = [{'image': image, 'label': label, 'name': name}
                         for image, label, name in zip(train_img, train_lbl, train_name)]
     print('train len {}'.format(len(data_dicts_train)))
@@ -430,9 +447,11 @@ def main_worker(gpu, args):
     val_pseudo_lbl=[]
     for line in open(os.path.join(datafold_dir, 'real_{}_val_{}.txt'.format(tumor_type, fold))):
         name = line.strip().split()[1].split('.')[0]
+        tokens = line.strip().split()
+        organ_tumor_label_path = tokens[1] 
         val_img.append(data_root + line.strip().split()[0])
         val_lbl.append(data_root + line.strip().split()[1])
-        val_pseudo_lbl.append('../organ_pseudo_swin_new/{}/{}/'.format(organ_type) + os.path.basename(line.strip().split()[1]))
+        val_pseudo_lbl.append('../organ_pseudo_swin_new/{}/{}/'.format(organ_type, os.path.basename(organ_tumor_label_path)))
         val_name.append(name)
     data_dicts_val = [{'image': image, 'label': label, 'organ_pseudo': organ_pseudo, 'name': name}
                 for image, label, organ_pseudo, name in zip(val_img, val_lbl, val_pseudo_lbl, val_name)]

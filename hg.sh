@@ -23,7 +23,6 @@ wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor
 wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor/kidney.pt
 cd ../..
 
-cd baseline1
 healthy_datapath=/data/AbdomenAtlas1.1Mini/
 datapath=/data/three_tumor_datasets/
 cache_rate=1.0
@@ -37,6 +36,7 @@ dist=$((RANDOM % 99999 + 10000))
 
 
 #difftumor
+cd baseline1
 organ=liver
 logdir="runs/$organ.fold$fold.$backbone"
 datafold_dir=cross_eval/"$organ"_aug_data_fold/

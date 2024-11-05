@@ -1,4 +1,4 @@
-cd Descriptivetumor/STEP3.SegmentationModel/TumorGeneration/model_weight
+cd STEP3.SegmentationModel/TumorGeneration/model_weight
 wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt
 cd ..
 cd model_weight1/

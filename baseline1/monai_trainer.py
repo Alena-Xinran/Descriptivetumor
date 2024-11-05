@@ -488,7 +488,7 @@ def run_training(model,
                             if val_channel_ind < val_acc.size:
                                 writer.add_scalar(val_channel_names[val_channel_ind], val_acc[val_channel_ind], epoch)
 
-                if val_acc[1] > val_acc_max:
+                if val_acc[1] >= val_acc_max:
                     print('new best ({:.6f} --> {:.6f}). '.format(val_acc_max, val_acc[1]))
                     val_acc_max = val_acc[1]
                     b_new_best = True

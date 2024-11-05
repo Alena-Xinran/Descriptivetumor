@@ -211,38 +211,52 @@ class RandCropByPosNegLabeld_select(transforms.RandCropByPosNegLabeld):
 
         d_crop[0]['name'] = data_name
         return d_crop
+    
 class LoadImage_train(MapTransform):
-    def __init__(self,organ_type):
-        self.reader1 = transforms.LoadImaged(keys=["image", "label"])
+    def __init__(self, organ_type):
+        self.reader_image_label = transforms.LoadImaged(keys=["image", "label"])
+        self.reader_label = transforms.LoadImaged(keys=["label"])
+        self.reader_image = transforms.LoadImaged(keys=["image"])
         self.organ_type = organ_type
 
     def __call__(self, data):
         d = dict(data)
         data_name = d['name']
         d['text'] = d.get('text', '')
-        if (not 'BDMAP' in data_name) and self.organ_type == 'kidney':
-            d = self.reader1.__call__(d)
-            d['label'][d['label']==3] = 1
-        elif ('BDMAP' in data_name) and self.organ_type == 'kidney':
-            d = self.reader1.__call__(d)
-            left_label, right_label = d['label']
-            
-            if left_label.ndim == 4:
-                left_label = left_label[0]
-            if right_label.ndim == 4:
-                right_label = right_label[0]
 
-            combined_label = left_label.astype(np.int16) + right_label.astype(np.int16)
-            
-            combined_label[combined_label > 0] = 1
-            d['label'] = combined_label
+        if self.organ_type == 'kidney':
+            if 'BDMAP' not in data_name:
+                d = self.reader_image_label(d)
+                d['label'][d['label'] == 3] = 1
+            else:
+                d = self.reader_image(d)
 
-            
-        else :
-            d = self.reader1.__call__(d)
+                left_label_path, right_label_path = d['label']
+
+                d_left = self.reader_label({'label': left_label_path})
+                d_right = self.reader_label({'label': right_label_path})
+
+                left_label = d_left['label']
+                right_label = d_right['label']
+
+                if left_label.ndim == 4:
+                    left_label = left_label[0]
+                if right_label.ndim == 4:
+                    right_label = right_label[0]
+
+                combined_label = (left_label > 0) | (right_label > 0)
+                combined_label = combined_label.astype(np.int16)
+
+                d['label'] = combined_label
+                label_meta_dict = d_left.get('label_meta_dict', {}).copy()
+                if 'affine' in d_right.get('label_meta_dict', {}):
+                    label_meta_dict['affine'] = d_right['label_meta_dict']['affine']
+                d['label_meta_dict'] = label_meta_dict
+        else:
+            d = self.reader_image_label(d)
+
 
         return d
-    
 
 class LoadImage_val(transforms.LoadImaged):
     def __init__(self, keys, *args,**kwargs, ):

@@ -13,7 +13,7 @@ import torch.utils.data.distributed
 from monai.transforms.transform import MapTransform
 import sys
 from os import environ
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3,4,5,6"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3,4,5,6,7"
 from monai.inferers import sliding_window_inference
 # from monai.data import DataLoader, Dataset
 from monai.losses import DiceLoss, DiceCELoss

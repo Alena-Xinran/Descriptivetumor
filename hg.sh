@@ -24,8 +24,8 @@ wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/difftumor
 cd ../..
 
 cd baseline1
-healthy_datapath=/ccvl/net/ccvl15/zzhou82/data/AbdomenAtlas/image_mask/AbdomenAtlas1.1Mini/AbdomenAtlas1.1Mini/
-datapath=/ccvl/net/ccvl15/xinran/
+healthy_datapath=/data/AbdomenAtlas1.1Mini/
+datapath=/data/three_tumor_datasets/
 cache_rate=1.0
 batch_size=4
 val_every=1

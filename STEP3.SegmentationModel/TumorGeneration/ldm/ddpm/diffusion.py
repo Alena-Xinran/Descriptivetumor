@@ -375,7 +375,7 @@ class Attention(nn.Module):
         return self.to_out(out)
 
 
-cache_dir = "/ccvl/net/ccvl15/xinran/DiffTumor/"
+cache_dir = ""
 import torch
 import torch.nn as nn
 
@@ -767,37 +767,6 @@ class GaussianDiffusion(nn.Module):
         model_mean, posterior_variance, posterior_log_variance = self.q_posterior(
             x_start=x_recon, x_t=x, t=t)
         return model_mean, posterior_variance, posterior_log_variance
-    def get_another_report(self, text):
-        file_path='/ccvl/net/ccvl15/xinran/ReportTumor/STEP2.DiffusionModel/cross_eval/kidney_tumor_data_early_fold/real_tumor_train_0.txt'
-        def extract_text_list(line):
-            reports = line.split("          ")
-            return reports[2] if len(reports) > 2 else ""
-
-        def process_file(file_path):
-            text_lists = []
-            with open(file_path, 'r') as file:
-                lines = file.readlines()
-                for line in lines:
-                    cleaned_line = line.strip().replace("\n", "").replace("\r", "")
-                    report = extract_text_list(cleaned_line)
-                    text_lists.append(report)
-            return text_lists
-
-        def contains_keywords(text, keywords):
-            return any(keyword in text for keyword in keywords)
-
-        keywords = [
-            "cyst", "hypoattenuating", "hypodensity", "hyperattenuating",
-            "heterogeneous enhancement", "arterial enhancement", "washout",
-            "cirrhosis", "metastases", "ill-defined", "well-defined"
-        ]
-        text_data = process_file(file_path)
-        text1_keywords = [keyword for keyword in keywords if keyword in text]
-        text2 = random.choice(text_data)
-        while text2 == text or contains_keywords(text2, text1_keywords):
-            text2 = random.choice(text_data)
-
-        return text2
     def contrastive_loss_3d(self, img1, img2, temperature=0.07):
         if img1.shape != img2.shape:
             img2 = F.interpolate(img2, size=img1.shape[2:], mode='trilinear', align_corners=False)

@@ -281,10 +281,11 @@ def train_epoch(model, loader, optimizer, scaler, epoch, loss_func, args, tumor_
                     healthy_organ_target = target[bs][None, ...]
                     if torch.any(healthy_organ_target != 0):
                         synt_data, organ_tumor_mask = synthesize_tumor(healthy_data, healthy_organ_target, args.organ_type, vqgan, early_sampler, text_description=text)
+                        data[bs, ...] = synt_data[0]
+                        target[bs, ...] = organ_tumor_mask[0]
                     else:
                         print("miss:",data_name)
-                    data[bs, ...] = synt_data[0]
-                    target[bs, ...] = organ_tumor_mask[0]
+                    
 
         data = data.detach()
         target = target.detach()

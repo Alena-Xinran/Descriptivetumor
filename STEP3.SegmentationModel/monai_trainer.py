@@ -255,11 +255,11 @@ def train_epoch(model, loader, optimizer, scaler, epoch, loss_func, args, tumor_
     run_loss = AverageMeter()
 
     if args.organ_type == 'liver':
-        sample_thresh = 0.5
+        sample_thresh = 0.6
     elif args.organ_type == 'pancreas':
-        sample_thresh = 0.5
+        sample_thresh = 0.6
     elif args.organ_type == 'kidney':
-        sample_thresh = 0.5
+        sample_thresh = 0.6
 
     # Model preparation
     vqgan, early_sampler = synt_model_prepare(device=torch.device("cuda", args.rank), version=args.version, fold=args.fold, organ=args.organ_model)
@@ -279,9 +279,10 @@ def train_epoch(model, loader, optimizer, scaler, epoch, loss_func, args, tumor_
                 if random.random() > sample_thresh:
                     healthy_data = data[bs][None, ...]
                     healthy_organ_target = target[bs][None, ...]
-
-                    synt_data, organ_tumor_mask = synthesize_tumor(healthy_data, healthy_organ_target, args.organ_type, vqgan, early_sampler, text_description=text)
-
+                    if torch.any(healthy_organ_target != 0):
+                        synt_data, organ_tumor_mask = synthesize_tumor(healthy_data, healthy_organ_target, args.organ_type, vqgan, early_sampler, text_description=text)
+                    else:
+                        print("miss:",data_name)
                     data[bs, ...] = synt_data[0]
                     target[bs, ...] = organ_tumor_mask[0]
 

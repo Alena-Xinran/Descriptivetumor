@@ -8,6 +8,7 @@ fold=0
 backbone=unet
 dist=$((RANDOM % 99999 + 10000))
 
+cd STEP3.SegmentationModel/
 version=2
 organ=liver
 fold=0

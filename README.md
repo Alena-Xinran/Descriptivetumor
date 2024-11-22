@@ -1,7 +1,5 @@
 ## STEP 1. Create a virtual environment 
 
-The environment is the same as [DiffTumor](https://github.com/MrGiovanni/DiffTumor)
-
 ```bash
 conda create -n difftumor python=3.8
 source activate difftumor # or conda activate difftumor

@@ -25,12 +25,8 @@ huggingface-cli BodyMaps/_AbdomenAtlas1.1Mini --token paste_your_token_here --re
 bash unzip.sh
 bash delete.sh
 ```
-## STEP 3. Installation
-```bash
-git clone https://github.com/Alena-Xinran/Descriptivetumor.git
-cd Descriptivetumor/
-```
-## STEP 4. train
+
+## STEP 3. train
 ```bash
 sh hg.sh
 ```

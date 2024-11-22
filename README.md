@@ -20,19 +20,6 @@ tar -zxvf 05_KiTS.tar.gz
 ```
 download healthy data
 
-5001-9262
-```bash
-wget https://huggingface.co/datasets/BodyMaps/_AbdomenAtlas1.1Mini/resolve/main/AbdomenAtlas1.1Mini_BDMAP_00005001_00005500.tar.gz?download=true
-wget https://huggingface.co/datasets/BodyMaps/_AbdomenAtlas1.1Mini/resolve/main/AbdomenAtlas1.1Mini_BDMAP_00005501_00006000.tar.gz?download=true
-wget https://huggingface.co/datasets/BodyMaps/_AbdomenAtlas1.1Mini/resolve/main/AbdomenAtlas1.1Mini_BDMAP_00006001_00006500.tar.gz?download=true
-wget https://huggingface.co/datasets/BodyMaps/_AbdomenAtlas1.1Mini/resolve/main/AbdomenAtlas1.1Mini_BDMAP_00006501_00007000.tar.gz?download=true
-wget https://huggingface.co/datasets/BodyMaps/_AbdomenAtlas1.1Mini/resolve/main/AbdomenAtlas1.1Mini_BDMAP_00007001_00007500.tar.gz?download=true
-wget https://huggingface.co/datasets/BodyMaps/_AbdomenAtlas1.1Mini/resolve/main/AbdomenAtlas1.1Mini_BDMAP_00007501_00008000.tar.gz?download=true
-wget https://huggingface.co/datasets/BodyMaps/_AbdomenAtlas1.1Mini/resolve/main/AbdomenAtlas1.1Mini_BDMAP_00008001_00008500.tar.gz?download=true
-wget https://huggingface.co/datasets/BodyMaps/_AbdomenAtlas1.1Mini/resolve/main/AbdomenAtlas1.1Mini_BDMAP_00008501_00009000.tar.gz?download=true
-wget https://huggingface.co/datasets/BodyMaps/_AbdomenAtlas1.1Mini/resolve/main/AbdomenAtlas1.1Mini_BDMAP_00009001_00009262.tar.gz?download=true
-```
-
 ```bash
 huggingface-cli BodyMaps/_AbdomenAtlas1.1Mini --token paste_your_token_here --repo-type dataset --local-dir .
 bash unzip.sh

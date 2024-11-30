@@ -8,15 +8,13 @@ from omegaconf import DictConfig, OmegaConf, open_dict
 import torch
 from ddpm import Unet3D, GaussianDiffusion, Trainer
 
-# 导入修改后的数据加载器
 from dataset.dataloader import get_loader
 
 @hydra.main(config_path='config', config_name='base_cfg', version_base=None)
 def run(cfg: DictConfig):
-    # 设置CUDA设备
+
     torch.cuda.set_device(cfg.model.gpus)
 
-    # 更新结果保存文件夹路径
     with open_dict(cfg):
         cfg.model.results_folder = os.path.join(
             cfg.model.results_folder, cfg.dataset.name, cfg.model.results_folder_postfix
@@ -33,7 +31,6 @@ def run(cfg: DictConfig):
     else:
         raise ValueError(f"Model {cfg.model.denoising_fn} doesn't exist")
 
-    # 初始化扩散模型
     diffusion = GaussianDiffusion(
         model,
         vqgan_ckpt=cfg.model.vqgan_ckpt,
@@ -44,11 +41,8 @@ def run(cfg: DictConfig):
         loss_type=cfg.model.loss_type,
     ).cuda()
 
-    # 加载新的数据集进行微调
     train_dataloader, train_sampler, dataset_size = get_loader(cfg.dataset)
-    val_dataloader = None  # 如果有验证集，可以在这里加载
 
-    # 初始化训练器
     trainer = Trainer(
         diffusion,
         cfg=cfg,
@@ -65,25 +59,16 @@ def run(cfg: DictConfig):
         num_workers=cfg.model.num_workers,
     )
 
-    # 加载检查点进行微调
-    checkpoint_path = '/ccvl/net/ccvl15/xinran/ReportTumor/STEP2.DiffusionModel2/checkpoints/ddpm/pancreas_tumor_train/pancreas_early_tumor_fold0/pancreas.pt'
+    checkpoint_path = '/Diffusion/checkpoints/ddpm/pancreas_tumor_train/pancreas_early_tumor_fold0/pancreas.pt'
     if os.path.exists(checkpoint_path):
         checkpoint = torch.load(checkpoint_path)
-        # 加载模型状态
         model.load_state_dict(checkpoint['model'])
-        # 如果需要加载优化器状态，取消以下注释
-        # trainer.optimizer.load_state_dict(checkpoint['optimizer'])
-        # 如果有EMA模型，也可以加载
-        # if 'ema' in checkpoint:
-        #     trainer.ema_model.load_state_dict(checkpoint['ema'])
-        # 设置起始步数
         if 'step' in checkpoint:
             trainer.step = checkpoint['step']
-        print(f"成功加载检查点：{checkpoint_path}")
+        print(f"ok：{checkpoint_path}")
     else:
-        raise FileNotFoundError(f"未找到检查点文件：{checkpoint_path}")
+        raise FileNotFoundError(f"no：{checkpoint_path}")
 
-    # 开始微调训练
     trainer.train()
 
 if __name__ == '__main__':

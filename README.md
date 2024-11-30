@@ -6,6 +6,12 @@ Tumor synthesis can generate examples that AI often misses or over-detects, impr
 
 [Xinran Li](https://scholar.google.com/citations?hl=zh-CN&user=awRZX_gAAAAJ), Yi Shuai, Chen Liu, Qi Chen, Qilong Wu, Pengfei Gao, Dong Yang,
 Can Zhao, Pedro R. A. S. Bassi, Daguang Xu, Kang Wang, Yang Yang, [Alan Yuille](https://www.cs.jhu.edu/~ayuille/), [Zongwei Zhou](https://www.zongweiz.com/)* <br/>
+## STEP 0. Installation
+
+```bash
+git clone https://github.com/Alena-Xinran/Descriptivetumor.git
+cd Descriptivetumor
+```
 
 ## STEP 1. Create a virtual environment 
 

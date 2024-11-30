@@ -1,0 +1,1 @@
+img/img0095.nii.gz                                  kidney_early_tumor/label0095.nii.gz

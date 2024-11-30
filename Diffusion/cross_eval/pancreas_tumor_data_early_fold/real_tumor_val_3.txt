@@ -1,0 +1,4 @@
+imagesTr/pancreas_120.nii.gz   pancreas_early_tumor/pancreas_120.nii.gz
+imagesTr/pancreas_032.nii.gz   pancreas_early_tumor/pancreas_032.nii.gz
+imagesTr/pancreas_102.nii.gz   pancreas_early_tumor/pancreas_102.nii.gz
+imagesTr/pancreas_183.nii.gz   pancreas_early_tumor/pancreas_183.nii.gz

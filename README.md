@@ -170,21 +170,12 @@ python -W ignore main.py --model_name $backbone --cache_rate $cache_rate --dist-
 
 
 ```bash
-cd SegmentationModel
-datapath=/mnt/ccvl15/zzhou82/PublicAbdominalData/
+cd Segmentation
+datapath=<your-datapath>
 organ=liver
 fold=0
 datafold_dir=cross_eval/"$organ"_aug_data_fold/
-
-# U-Net
 python -W ignore validation.py --model=unet --data_root $datapath --datafold_dir $datafold_dir --tumor_type tumor --organ_type $organ --fold $fold --log_dir $organ/$organ.fold$fold.unet --save_dir out/$organ/$organ.fold$fold.unet
-
-# nnU-Net
-python -W ignore validation.py --model=nnunet --data_root $datapath --datafold_dir $datafold_dir --tumor_type tumor --organ_type $organ --fold $fold --log_dir $organ/$organ.fold$fold.unet --save_dir out/$organ/$organ.fold$fold.unet
-
-# Swin-UNETR
-python -W ignore validation.py --model=swinunetr --data_root $datapath --datafold_dir $datafold_dir --tumor_type tumor --organ_type $organ --fold $fold --log_dir $organ/$organ.fold$fold.unet --save_dir out/$organ/$organ.fold$fold.unet
-
 ```
 
 We also provide the singularity container for DiffTumor in [HuggingFace 🤗](https://huggingface.co/qicq1c/DiffTumor)

@@ -6,6 +6,13 @@ Tumor synthesis can generate examples that AI often misses or over-detects, impr
 
 [Xinran Li](https://scholar.google.com/citations?hl=zh-CN&user=awRZX_gAAAAJ), Yi Shuai, Chen Liu, Qi Chen, Qilong Wu, Pengfei Gao, Dong Yang,
 Can Zhao, Pedro R. A. S. Bassi, Daguang Xu, Kang Wang, Yang Yang, [Alan Yuille](https://www.cs.jhu.edu/~ayuille/), [Zongwei Zhou](https://www.zongweiz.com/)* <br/>
+
+**We have documented common questions for the paper in [Frequently Asked Questions (FAQ)](documents/FAQ.md).**
+
+**We have summarized publications related to tumor synthesis in [Awesome Synthetic Tumors](https://github.com/MrGiovanni/SyntheticTumors/blob/main/AWESOME.md) [![Awesome](https://awesome.re/badge.svg)](https://awesome.re).**
+
+**We have released videos for [Visual Turing Test](https://www.dropbox.com/scl/fo/mgw953fdysvto2y6bog1c/h?rlkey=pqe9ar4xzo52ggm5v8v43275v&dl=0).** Check to see if you could tell which is real tumor and which is synthetic tumor. 
+
 ## STEP 0. Installation
 
 ```bash

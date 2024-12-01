@@ -107,7 +107,7 @@ python train.py dataset.name=liver_tumor_train dataset.data_root_path=$datapath 
 
 We offer the pre-trained checkpoints of Diffusion Model, which were trained for early-stage and mid-/late- stage tumors for liver, pancreas and kidney, respectively. This checkpoint can be directly used for STEP3 if you do not want to re-train the Diffusion Model. Simply download it to `STEP3.SegmentationModel/TumorGeneration/model_weight`
 
-### 🔗 Pre-trained Model Checkpoints
+### 🔗 Checkpoints Overview
 
 The following checkpoints are available for download. These pre-trained weights can be used directly for tumor generation and segmentation tasks for different organs:
 
@@ -128,7 +128,7 @@ Run the following commands to download the pre-trained weights:
 
 ```bash
 # Navigate to the model weights directory
-cd STEP3.SegmentationModel/TumorGeneration/model_weight
+cd Segmentation/TumorGeneration/model_weight
 
 # Download the Autoencoder Model checkpoint
 wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt
@@ -138,15 +138,30 @@ wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descripti
 wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/pancreas.pt
 wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/kidney.pt
 
-# Navigate back to the main directory
 cd ../..
 ```
+### 🔧 Start training.
+```bash
+cd Segmentation
 
+healthy_datapath=<your-datapath>
+datapath=<your-datapath>
+cache_rate=1.0
+batch_size=12
+val_every=50
+workers=12
+organ=liver
+fold=0
+backbone=unet
+logdir="runs/$organ.fold$fold.$backbone"
+datafold_dir=cross_eval/"$organ"_aug_data_fold/
+dist=$((RANDOM % 99999 + 10000))
+python -W ignore main.py --model_name $backbone --cache_rate $cache_rate --dist-url=tcp://127.0.0.1:$dist --workers $workers --max_epochs 2000 --val_every $val_every --batch_size=$batch_size --save_checkpoint --distributed --noamp --organ_type $organ --organ_model $organ --tumor_type tumor --fold $fold --ddim_ts 50 --logdir=$logdir --healthy_data_root $healthy_datapath --data_root $datapath --datafold_dir $datafold_dir
+```
 ### 🔗 Checkpoint Overview
 
 | **Model**           | **Download**                                                                                 |
 |----------------------|---------------------------------------------------------------------------------------------------|
-| **Autoencoder**      | [Download](https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt) |
 | **Liver**     | [Download](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/liver.pt) |
 | **Pancreas**   | [Download](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/pancreas.pt) |
 | **Kidney**     | [Download](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/kidney.pt) |

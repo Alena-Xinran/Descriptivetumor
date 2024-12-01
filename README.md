@@ -96,6 +96,16 @@ This checkpoint can be directly used for the Diffusion model if you do not want 
 cd Diffusion/pretrained_models/
 wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt
 ```
+### 🔧 Start training.
+```bash
+cd Diffusion/
+vqgan_ckpt=<pretrained-AutoencoderModel> (e.g., /pretrained_models/AutoencoderModel.ckpt)
+datapath=<your-datapath> 
+tumorlabel=<your-labelpath> 
+python train.py dataset.name=liver_tumor_train dataset.data_root_path=$datapath dataset.label_root_path=$tumorlabel dataset.dataset_list=['liver'] dataset.uniform_sample=False model.results_folder_postfix="liver"  model.vqgan_ckpt=$vqgan_ckpt
+```
+
+We offer the pre-trained checkpoints of Diffusion Model, which were trained for early-stage and mid-/late- stage tumors for liver, pancreas and kidney, respectively. This checkpoint can be directly used for STEP3 if you do not want to re-train the Diffusion Model. Simply download it to `STEP3.SegmentationModel/TumorGeneration/model_weight`
 
 ### 🔗 Pre-trained Model Checkpoints
 
@@ -103,23 +113,44 @@ The following checkpoints are available for download. These pre-trained weights 
 
 | Tumor      | Download                                                                                      |
 |------------|-----------------------------------------------------------------------------------------------|
-| **Liver**  | [Download Link](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/liver.pt) |
-| **Pancreas** | [Download Link](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/pancreas.pt) |
-| **Kidney**   | [Download Link](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/kidney.pt?download=true) |
+| **Liver**  | [Download](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/liver.pt) |
+| **Pancreas** | [Download](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/pancreas.pt) |
+| **Kidney**   | [Download](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/kidney.pt?download=true) |
 
+## STEP 2. 🚀 Train Segmentation model
 
-## STEP 2. Train Segmentation model
+To use the **TumorGeneration** segmentation model, download the necessary pre-trained weights.  
+Follow the instructions below to ensure the proper setup of your directory structure and model files.
+
+### 📥 Download Required Files
+
+Run the following commands to download the pre-trained weights:
 
 ```bash
+# Navigate to the model weights directory
 cd STEP3.SegmentationModel/TumorGeneration/model_weight
+
+# Download the Autoencoder Model checkpoint
 wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt
-cd ..
-cd model_weight/
+
+# Download tumor-specific checkpoints
 wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/liver.pt
 wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/pancreas.pt
 wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/kidney.pt
+
+# Navigate back to the main directory
 cd ../..
 ```
+
+### 🔗 Checkpoint Overview
+
+| **Model**           | **Download**                                                                                 |
+|----------------------|---------------------------------------------------------------------------------------------------|
+| **Autoencoder**      | [Download](https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt) |
+| **Liver**     | [Download](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/liver.pt) |
+| **Pancreas**   | [Download](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/pancreas.pt) |
+| **Kidney**     | [Download](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/kidney.pt) |
+
 ## STEP 3. Evaluation
 ## Acknowledgments
 This work was supported by the Lustgarten Foundation for Pancreatic Cancer Research and the Patrick J. McGovern Foundation Award.

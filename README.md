@@ -24,7 +24,6 @@ Can Zhao<sup>7</sup>, [Pedro R. A. S. Bassi](https://scholar.google.com/citation
 
 **We have summarized publications related to tumor synthesis in [Awesome Synthetic Tumors](https://github.com/MrGiovanni/SyntheticTumors/blob/main/AWESOME.md) [![Awesome](https://awesome.re/badge.svg)](https://awesome.re).**
 
-**We have released videos for [Visual Turing Test](https://www.dropbox.com/scl/fo/mgw953fdysvto2y6bog1c/h?rlkey=pqe9ar4xzo52ggm5v8v43275v&dl=0).** Check to see if you could tell which is real tumor and which is synthetic tumor. 
 
 ## STEP 0. Installation
 
@@ -42,6 +41,9 @@ pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --e
 pip install -r requirements.txt
 ```
 ## STEP 2. Download Datasets
+- 01 [Liver Tumor Segmentation Challenge (LiTS)](https://competitions.codalab.org/competitions/17094)
+- 02 [MSD-Pancreas](https://drive.google.com/drive/folders/1HqEgzS8BV2c7xYNrZdEAnrHk7osJJ--2)
+- 03 [KiTS](https://kits-challenge.org/kits23/#download-block)
 ### Download unhealthy data
 ```bash
 wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/10_Decathlon/Task03_Liver.tar.gz # Task03_Liver.tar.gz (28.7 GB)
@@ -54,12 +56,11 @@ tar -zxvf Task07_Pancreas.tar.gz
 tar -zxvf 05_KiTS.tar.gz
 ```
 ### Download healthy data
-
+-  [AbdonmenAtlas 1.0](https://github.com/MrGiovanni/AbdomenAtlas)
 ```bash
 huggingface-cli BodyMaps/_AbdomenAtlas1.1Mini --token paste_your_token_here --repo-type dataset --local-dir .
 bash unzip.sh
 bash delete.sh
-
 huggingface-cli download qicq1c/HealthyCT  --repo-type dataset --local-dir .  --cache-dir ./cache
 cat healthy_ct.zip* > HealthyCT.zip
 rm -rf healthy_ct.zip* cache

@@ -4,7 +4,7 @@ Tumor synthesis can generate examples that AI often misses or over-detects, impr
   <img src="https://github.com/user-attachments/assets/b10d59ee-78ca-443f-9d5a-862d0235a5c7" alt="fig_cloudplot" width="600"/>
 </div>
 
-[Xinran Li](https://scholar.google.com/citations?hl=zh-CN&user=awRZX_gAAAAJ), Yi Shuai, Chen Liu, Qi Chen, Qilong Wu, Pengfei Gao, Dong Yang,
+[Xinran Li](https://scholar.google.com/citations?hl=zh-CN&user=awRZX_gAAAAJ), Yi Shuai, Chen Liu, [Qi Chen](https://scholar.google.com/citations?user=4Q5gs2MAAAAJ&hl=en), Qilong Wu, Pengfei Gao, Dong Yang,
 Can Zhao, Pedro R. A. S. Bassi, Daguang Xu, Kang Wang, Yang Yang, [Alan Yuille](https://www.cs.jhu.edu/~ayuille/), [Zongwei Zhou](https://www.zongweiz.com/)* <br/>
 
 **We have documented common questions for the paper in [Frequently Asked Questions (FAQ)](documents/FAQ.md).**

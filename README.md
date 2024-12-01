@@ -4,7 +4,7 @@ Tumor synthesis can generate examples that AI often misses or over-detects, impr
   <img src="https://github.com/user-attachments/assets/b10d59ee-78ca-443f-9d5a-862d0235a5c7" alt="fig_cloudplot" width="600"/>
 </div>
 
-[Xinran Li](https://scholar.google.com/citations?hl=zh-CN&user=awRZX_gAAAAJ)<sup>1,2</sup>, Yi Shuai<sup>3</sup>, [Chen Liu](https://scholar.google.com/citations?user=i938yiEAAAAJ&hl=zh-CN)<sup>1,4</sup>, [Qi Chen](https://scholar.google.com/citations?user=4Q5gs2MAAAAJ&hl=en)<sup>1,5</sup>, [Qilong Wu](https://github.com/JerryWu-code)<sup>1,6</sup>, Pengfei Gao<sup>7</sup>, Dong Yang<sup>7</sup>,  
+[Xinran Li](https://scholar.google.com/citations?hl=zh-CN&user=awRZX_gAAAAJ)<sup>1,2</sup>, [Yi Shuai](https://openreview.net/profile?id=~Yi_Shuai1)<sup>3</sup>, [Chen Liu](https://scholar.google.com/citations?user=i938yiEAAAAJ&hl=zh-CN)<sup>1,4</sup>, [Qi Chen](https://scholar.google.com/citations?user=4Q5gs2MAAAAJ&hl=en)<sup>1,5</sup>, [Qilong Wu](https://github.com/JerryWu-code)<sup>1,6</sup>, Pengfei Gao<sup>7</sup>, Dong Yang<sup>7</sup>,  
 Can Zhao<sup>7</sup>, [Pedro R. A. S. Bassi](https://scholar.google.com/citations?hl=zh-CN&user=NftgL6gAAAAJ)<sup>1,8,9</sup>, [Daguang Xu](https://research.nvidia.com/person/daguang-xu)<sup>7</sup>, [Kang Wang](https://radiology.ucsf.edu/people/kang-wang)<sup>10</sup>, [Yang Yang](https://scholar.google.com/citations?user=6XsJUBIAAAAJ&hl=zh-CN)<sup>10</sup>, [Alan Yuille](https://www.cs.jhu.edu/~ayuille/)<sup>1</sup>, [Zongwei Zhou](https://www.zongweiz.com/)<sup>1,*</sup>  
 
 <sup>1</sup> Johns Hopkins University  
@@ -25,14 +25,14 @@ Can Zhao<sup>7</sup>, [Pedro R. A. S. Bassi](https://scholar.google.com/citation
 **We have summarized publications related to tumor synthesis in [Awesome Synthetic Tumors](https://github.com/MrGiovanni/SyntheticTumors/blob/main/AWESOME.md) [![Awesome](https://awesome.re/badge.svg)](https://awesome.re).**
 
 
-## STEP 0. Installation
+## ⚙️ Requirements
+Begin by cloning the project repository to your local machine using the following command:
 
 ```bash
 git clone https://github.com/Alena-Xinran/Descriptivetumor.git
 cd Descriptivetumor
 ```
-
-## STEP 1. Create a virtual environment 
+Create a virtual environment using the following command:
 
 ```bash
 conda create -n TextoMorph python=3.8
@@ -40,35 +40,75 @@ source activate TextoMorph # or conda activate TextoMorph
 pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
 pip install -r requirements.txt
 ```
-## STEP 2. Download Datasets
-- 01 [Liver Tumor Segmentation Challenge (LiTS)](https://competitions.codalab.org/competitions/17094)
-- 02 [MSD-Pancreas](https://drive.google.com/drive/folders/1HqEgzS8BV2c7xYNrZdEAnrHk7osJJ--2)
-- 03 [KiTS](https://kits-challenge.org/kits23/#download-block)
-### Download unhealthy data
+---
+## 📂 Dataset Download Instructions
+
+This document provides step-by-step instructions to download and prepare datasets required for the project.
+### 📥 Download Unhealthy Data
+- 📌 Liver Tumor Segmentation Challenge (LiTS)
+  🌐 [Liver Tumor Segmentation Challenge (LiTS)](https://competitions.codalab.org/competitions/17094)  
+
+- 📌 MSD-Pancreas
+  🌐 [MSD-Pancreas](https://drive.google.com/drive/folders/1HqEgzS8BV2c7xYNrZdEAnrHk7osJJ--2)
+
+- 📌 KiTS
+  🌐 [KiTS](https://kits-challenge.org/kits23/#download-block)
+
+Run the following commands to download and extract unhealthy datasets:
 ```bash
 wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/10_Decathlon/Task03_Liver.tar.gz # Task03_Liver.tar.gz (28.7 GB)
 wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/10_Decathlon/Task07_Pancreas.tar.gz # Task07_Pancreas.tar.gz (28.7 GB)
 wget https://huggingface.co/datasets/qicq1c/Pubilcdataset/resolve/main/05_KiTS.tar.gz # KiTS.tar.gz (28 GB)
 ```
+Extract the downloaded files:
 ```bash
 tar -zxvf Task03_Liver.tar.gz
 tar -zxvf Task07_Pancreas.tar.gz
 tar -zxvf 05_KiTS.tar.gz
 ```
-### Download healthy data
--  [AbdonmenAtlas 1.0](https://github.com/MrGiovanni/AbdomenAtlas)
+### 📥 Download Healthy Data
+- 📌 AbdonmenAtlas 1.1
+  🌐 [AbdonmenAtlas 1.1](https://github.com/MrGiovanni/AbdomenAtlas)
+- 📌 Healthy CT Dataset
+  🌐 [HealthyCT Dataset](https://huggingface.co/datasets/qicq1c/HealthyCT)  
+
+Download **AbdonmenAtlas 1.0** using the following commands:
 ```bash
 huggingface-cli BodyMaps/_AbdomenAtlas1.1Mini --token paste_your_token_here --repo-type dataset --local-dir .
 bash unzip.sh
 bash delete.sh
+```
+Download and prepare the **HealthyCT** dataset:
+```bash
 huggingface-cli download qicq1c/HealthyCT  --repo-type dataset --local-dir .  --cache-dir ./cache
 cat healthy_ct.zip* > HealthyCT.zip
 rm -rf healthy_ct.zip* cache
 unzip -o -q HealthyCT.zip -d /HealthyCT
 ```
-## STEP 3. Train Diffusion model
 
-## STEP 4. Train Segmentation model
+
+## STEP 1. 🚀 Train Diffusion Model
+
+We offer the pre-trained checkpoint of the **Autoencoder Model**, which was trained on the **AbdomenAtlas 1.1 dataset** (see details in [SuPreM](https://github.com/MrGiovanni/SuPreM)).  
+This checkpoint can be directly used for the Diffusion model if you do not want to re-train the Autoencoder Model. Simply download it to `Diffusion/pretrained_models/AutoencoderModel.ckpt` by running the following command:
+
+```bash
+cd Diffusion/pretrained_models/
+wget https://huggingface.co/MrGiovanni/DiffTumor/resolve/main/AutoencoderModel/AutoencoderModel.ckpt
+```
+
+### 🔗 Pre-trained Model Checkpoints
+
+The following checkpoints are available for download. These pre-trained weights can be used directly for tumor generation and segmentation tasks for different organs:
+
+| Tumor      | Download                                                                                      |
+|------------|-----------------------------------------------------------------------------------------------|
+| **Liver**  | [Download Link](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/liver.pt) |
+| **Pancreas** | [Download Link](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/pancreas.pt) |
+| **Kidney**   | [Download Link](https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/kidney.pt?download=true) |
+
+
+## STEP 2. Train Segmentation model
 
 ```bash
 cd STEP3.SegmentationModel/TumorGeneration/model_weight
@@ -79,5 +119,7 @@ wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descripti
 wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/pancreas.pt
 wget https://huggingface.co/Alena-Xinran/DescriptiveTumor/resolve/main/descriptivetumor2/kidney.pt
 cd ../..
-
 ```
+## STEP 3. Evaluation
+## Acknowledgments
+This work was supported by the Lustgarten Foundation for Pancreatic Cancer Research and the Patrick J. McGovern Foundation Award.

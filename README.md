@@ -4,8 +4,21 @@ Tumor synthesis can generate examples that AI often misses or over-detects, impr
   <img src="https://github.com/user-attachments/assets/b10d59ee-78ca-443f-9d5a-862d0235a5c7" alt="fig_cloudplot" width="600"/>
 </div>
 
-[Xinran Li](https://scholar.google.com/citations?hl=zh-CN&user=awRZX_gAAAAJ), Yi Shuai, Chen Liu, [Qi Chen](https://scholar.google.com/citations?user=4Q5gs2MAAAAJ&hl=en), Qilong Wu, Pengfei Gao, Dong Yang,
-Can Zhao, Pedro R. A. S. Bassi, Daguang Xu, Kang Wang, Yang Yang, [Alan Yuille](https://www.cs.jhu.edu/~ayuille/), [Zongwei Zhou](https://www.zongweiz.com/)* <br/>
+[Xinran Li](https://scholar.google.com/citations?hl=zh-CN&user=awRZX_gAAAAJ)<sup>1,2</sup>, Yi Shuai<sup>3</sup>, [Chen Liu](https://scholar.google.com/citations?user=i938yiEAAAAJ&hl=zh-CN)<sup>1,4</sup>, [Qi Chen](https://scholar.google.com/citations?user=4Q5gs2MAAAAJ&hl=en)<sup>1,5</sup>, [Qilong Wu](https://github.com/JerryWu-code)<sup>1,6</sup>, Pengfei Gao<sup>7</sup>, Dong Yang<sup>7</sup>,  
+Can Zhao<sup>7</sup>, [Pedro R. A. S. Bassi](https://scholar.google.com/citations?hl=zh-CN&user=NftgL6gAAAAJ)<sup>1,8,9</sup>, [Daguang Xu](https://research.nvidia.com/person/daguang-xu)<sup>7</sup>, [Kang Wang](https://radiology.ucsf.edu/people/kang-wang)<sup>10</sup>, [Yang Yang](https://scholar.google.com/citations?user=6XsJUBIAAAAJ&hl=zh-CN)<sup>10</sup>, [Alan Yuille](https://www.cs.jhu.edu/~ayuille/)<sup>1</sup>, [Zongwei Zhou](https://www.zongweiz.com/)<sup>1,*</sup>  
+
+<sup>1</sup> Johns Hopkins University  
+<sup>2</sup> Shenzhen Technology University  
+<sup>3</sup> Sun Yat-sen University  
+<sup>4</sup> Hong Kong Polytechnic University  
+<sup>5</sup> University of Chinese Academy of Sciences  
+<sup>6</sup> National University of Singapore  
+<sup>7</sup> NVIDIA  
+<sup>8</sup> University of Bologna  
+<sup>9</sup> Italian Institute of Technology  
+<sup>10</sup> University of California, San Francisco  
+
+
 
 **We have documented common questions for the paper in [Frequently Asked Questions (FAQ)](documents/FAQ.md).**
 
